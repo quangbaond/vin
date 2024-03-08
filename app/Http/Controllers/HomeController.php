@@ -14,10 +14,9 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
-
         $setting = \App\Models\Setting::first();
         view()->share('setting', $setting);
+        $this->middleware('auth');
     }
 
     /**

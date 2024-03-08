@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $setting = \App\Models\Setting::first();
+    return view('welcome', compact('setting'));
 });
 
 Auth::routes();

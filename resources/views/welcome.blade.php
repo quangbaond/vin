@@ -146,8 +146,11 @@
              <img id="index-logo" alt="" src="/new image/favinpearl.png" />
              <p id="index-name">Vinpearl Lottery</p>
             </div>-->
-            <div><span>SỐ DƯ：</span>
-                <span class="numberStyle">{{ auth()->user()->balance }}</span></div>
+                @if(auth()->check())
+                    <div><span>SỐ DƯ：</span>
+                        <span class="numberStyle">{{ auth()->user()->balance }}</span></div>
+                @endif
+
             @if(!auth()->check())
                 <div class="loginBtn">
                     <a href="indexc30b.html?a=login"><span>Đăng nhập</span></a>
