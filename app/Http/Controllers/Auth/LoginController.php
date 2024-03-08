@@ -45,30 +45,4 @@ class LoginController extends Controller
     {
         return 'username';
     }
-
-    public function sendLoginResponse(Request $request)
-    {
-        $request->session()->regenerate();
-
-        $this->clearLoginAttempts($request);
-
-        if ($response = $this->authenticated($request, $this->guard()->user())) {
-            return $response;
-        }
-
-        return $request->wantsJson()
-            ? new JsonResponse([], 204)
-            : redirect()->intended($this->redirectPath());
-    }
-
-
-    protected function sendFailedLoginResponse(Request $request): void
-    {
-        throw ValidationException::withMessages([
-            $this->username() => [
-                'Tài khoản hoặc mật khẩu không đúng',
-            ],
-        ]);
-
-    }
 }

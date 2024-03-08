@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('bankName')->nullable();
             $table->string('bankNumber')->nullable();
             $table->string('password');
+            $table->tinyInteger('status')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

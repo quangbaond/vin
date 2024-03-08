@@ -17,6 +17,7 @@ class HomeController extends Controller
         $setting = \App\Models\Setting::first();
         view()->share('setting', $setting);
         $this->middleware('auth');
+        $this->middleware('check');
     }
 
     /**

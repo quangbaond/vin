@@ -49,10 +49,19 @@ class UserResource extends Resource
                         Forms\Components\TextInput::make('balance')
                             ->label('Số dư')
                             ->required(),
-                        // password
                         Forms\Components\TextInput::make('password')
                             ->label('Mật khẩu')
-                            ->required(fn (string $context): bool => $context === 'create')
+                            ->password()
+                            ->required(fn (string $context): bool => $context === 'create'),
+                        Forms\Components\Checkbox::make('is_admin')
+                            ->label('Admin'),
+                        Forms\Components\Select::make('status')
+                            ->label('Trạng thái')
+                            ->options([
+                                1 => 'Hoạt động',
+                                0 => 'Khóa',
+                            ])
+                            ->required(),
                     ]),
             ]);
     }
@@ -81,6 +90,9 @@ class UserResource extends Resource
                     ->sortable(),
                 Tables\Columns\BooleanColumn::make('is_admin')
                     ->label('Admin')
+                    ->sortable(),
+                Tables\Columns\BooleanColumn::make('status')
+                    ->label('Trạng thái')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Created')

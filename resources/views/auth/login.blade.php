@@ -78,6 +78,9 @@
                             @if($errors->has('username'))
                                 <span class="error">{{ $errors->first('username') }}</span>
                             @endif
+                            @if(session()->has('error'))
+                                <span class="error">{{ session()->get('error') }}</span>
+                            @endif
                             <div class="LoginInput">
                                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAATCAMAAACqTK3AAAAAV1BMVEUAAACZmZmVlZWYmJiZmZmYmJiWlpaZmZmYmJiZmZmYmJiZmZmYmJiYmJiZmZmZmZmYmJiZmZmXl5eWlpaWlpaLi4uYmJiYmJiZmZmZmZmZmZmWlpaZmZlgZZ36AAAAHHRSTlMA8jUq+khO6mF/V97QwoqEeGpcIhkL37WljA8ISoCCigAAAHVJREFUGNN9jUkOhDAMBG3IjLOHsMzq/78TFEGQg0Rd2iq12lD4GU/ovzNUNLk42uRxOMzI5l+OrHbXK1Pr/Cj5cVAJoQTFU2W1bF1kAWpA0wsSwTYoeKo7ZXWrJuaubb3D0qo8XLbm6fbjVWHqBJHAvlDg7ApzdQbYC0I+zAAAAABJRU5ErkJggg==" />
                                 <input type="password" id="password" name="password" value="{{ old('password') }}"placeholder="Nhập mật khẩu" />

@@ -211,7 +211,7 @@
             <li><a class="footer-link" href="{{ route('pay') }}"><img src="statics/images/7338c98e.recharge.png"
                                                           style="transform: scale(1);"><span>Nạp tiền</span></a><span></span>
             </li>
-            <li><a class="footer-link" href="?a=kaijiang"><img src="/zhuyetu/kj.png" style="transform: scale(1);"><span>CSKH</span></a><span></span>
+            <li><a class="footer-link" href="{{ $setting->telegram }}"><img src="/zhuyetu/kj.png" style="transform: scale(1);"><span>CSKH</span></a><span></span>
             </li>
             <li><a class="footer-link" href="?a=youhui"><img src="/zhuyetu/yh.png" style="transform: scale(1);"><span>Ưu đãi</span></a><span></span>
             </li>
