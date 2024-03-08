@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -51,7 +52,14 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:6'],
+        ], [
+            'name.required' => 'Vui lòng nhập tên đăng nhập',
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'username.exists' => 'Tài khoản không tồn tại',
+            'password.min' => 'Mật khẩu phải có ít nhất 6 ký tự',
+            'username.unique' => 'Tài khoản đã tồn tại',
+            'username.required' => 'Vui lòng nhập tài khoản',
         ]);
     }
 

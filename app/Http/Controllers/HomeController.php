@@ -53,6 +53,10 @@ class HomeController extends Controller
     {
         $request->validate([
             'amount' => 'required|numeric|min:1',
+        ], [
+            'amount.required' => 'Vui lòng nhập số tiền',
+            'amount.numeric' => 'Số tiền phải là số',
+            'amount.min' => 'Số tiền phải lớn hơn 0',
         ]);
 
         $user = auth()->user();
@@ -100,6 +104,11 @@ class HomeController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'username' => 'required|string|max:255',
+        ], [
+            'name.required' => 'Vui lòng nhập họ và tên',
+            'username.required' => 'Vui lòng nhập tên đăng nhập',
+            'name.max' => 'Họ và tên không được vượt quá 255 ký tự',
+            'username.max' => 'Tên đăng nhập không được vượt quá 255 ký tự'
         ]);
 
         $user = auth()->user();

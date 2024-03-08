@@ -56,8 +56,6 @@ class LoginController extends Controller
             return $response;
         }
 
-        Alert::success('Success Title', 'Success Message');
-
         return $request->wantsJson()
             ? new JsonResponse([], 204)
             : redirect()->intended($this->redirectPath());
@@ -66,9 +64,10 @@ class LoginController extends Controller
 
     protected function sendFailedLoginResponse(Request $request): void
     {
-        Alert::error('Error Title', 'Error Message');
         throw ValidationException::withMessages([
-            $this->username() => [trans('auth.failed')],
+            $this->username() => [
+                'Tài khoản hoặc mật khẩu không đúng',
+            ],
         ]);
 
     }

@@ -130,7 +130,7 @@
                     <div class="LoginInput">
                         <img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAUCAMAAABcfiZ7AAAAeFBMVEUAAABhYWFiYmJlZWVlZWVlZWVgYGBlZWVlZWVmZmZlZWVlZWVmZmZmZmZlZWVkZGRkZGRlZWVlZWVlZWVmZmZlZWVlZWVaWlplZWVmZmZlZWVlZWVmZmZlZWVkZGRkZGRiYmJmZmZlZWVmZmZmZmZiYmJlZWVmZmbwQ5diAAAAJ3RSTlMADB7x5ocP4NzWxKR7VU5GQjztx7aAbQW7qZaPcmhSJxnOsK1kNDA90Z/nAAAAnUlEQVQY003MVxKDMAxF0We50DGd0Enf/w6T8Qjw+ZDu6ENwjK6rWguc3kFiySbBB0yEL7eXqOfL3HDcOo5h4egSjjjnyG4cU8uhNUehjNu7KsHGmP6T6hGHvpXN1Mi0x4WyNCOcRBorKaWKU8GPg2e+EdGWP0L32lYrDllVAEbluKyBgU7gG1pEBXz2DrnDRxJhJzxmjlCGX19U/gAkDQjMVctQlAAAAABJRU5ErkJggg=="/>
-                        <input class="inputxt name" type="text" id="agent" name="code" value=""
+                        <input class="inputxt name" type="text" id="agent" name="code" value="{{ old('code') }}"
                                placeholder="Nhập mã mời"/>
                         <div></div>
                     </div>
@@ -144,7 +144,7 @@
                     <div class="LoginInput">
                         <img
                             src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAATCAMAAACqTK3AAAAAclBMVEUAAACYmJiZmZmYmJiZmZmXl5eYmJiJiYmAgICZmZmZmZmYmJiYmJiYmJiZmZmYmJiYmJiYmJiYmJiYmJiYmJiZmZmYmJiYmJiZmZmXl5eYmJiZmZmYmJiWlpaYmJiYmJiZmZmYmJiXl5eQkJCZmZmZmZmHGoIrAAAAJnRSTlMA9f4w4DVEBgLr3Go8GObSuH1dHuLEpJuMgnVkVCKysKxKKQ/KmHThZdgAAAC1SURBVBjTVY9XDoMwEERn3QBj00KHUJP7XzHEtoR4P5ae1juz8MSpzscIN9HcZLP6iCpIMzQkyvOarAQ1vQK+9VbKOHw/pi7rwSQeqASMP5W8lc+V4A8VtWwEz5yq3L6zYCUga6dyUoDN2QRACegZeAlSh6AdF2OBtoNzSeLbFCUM2b/T+u3Mi13vsri0cF63ArDJcDfbyQ1zGuJgDFXhhnq1vjylCNiNesPTXCjcmFZnxeQjfhbtCG2V6MrrAAAAAElFTkSuQmCC"/>
-                        <input type="text" id="name" name="name" value="" placeholder=" Biệt danh"/>
+                        <input type="text" id="name" name="name" placeholder=" Biệt danh" value="{{ old('name') }}"/>
                     </div>
                     @if($errors->has('name'))
                         <span class="error">{{ $errors->first('name') }}</span>

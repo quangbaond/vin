@@ -140,7 +140,7 @@
     <div class="dream-container" id="home-content" style="width: 100%; height: 100vh; ">
         <div class="dream-header">
             @if(!auth()->check())
-                <div class="registerBtn"><a href="index8759.html?a=register"><span>Đăng ký</span></a></div>
+                <div class="registerBtn"><a href="{{ route('register') }}"><span>Đăng ký</span></a></div>
             @endif
             <!--<div >
              <img id="index-logo" alt="" src="/new image/favinpearl.png" />
