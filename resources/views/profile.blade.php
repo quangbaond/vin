@@ -23,6 +23,13 @@
           id="layuicss-layer">
     <script type="text/javascript" src="statics/js/global.js"></script>
     <script type="text/javascript" src="statics/js/common.js"></script>
+    <style>
+        .success{
+            color: green;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 <div class="main">
@@ -33,6 +40,9 @@
     </div>
     <div class="scroll_box" style="height: 914px;">
         <div class="user_box">
+            @if(session()->has('success'))
+                <li class="success">{{ session()->get('success') }}</li>
+            @endif
             <form action="{{ route('updateProfile') }}" method="post">
                 @csrf
                 <div class="form_div">
