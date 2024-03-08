@@ -153,7 +153,7 @@
 
             @if(!auth()->check())
                 <div class="loginBtn">
-                    <a href="indexc30b.html?a=login"><span>Đăng nhập</span></a>
+                    <a href="{{ route('home') }}"><span>Đăng nhập</span></a>
                 </div>
             @endif
 
