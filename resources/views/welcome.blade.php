@@ -146,12 +146,8 @@
              <img id="index-logo" alt="" src="/new image/favinpearl.png" />
              <p id="index-name">Vinpearl Lottery</p>
             </div>-->
-                @if(auth()->check())
-            <div>
-                <span>SỐ DƯ：</span>
-                <span class="numberStyle">{{ auth()->user()->balance }}</span>
-            </div>
-                @endif
+            <div><span>SỐ DƯ：</span>
+                <span class="numberStyle">{{ auth()->user()->balance }}</span></div>
             @if(!auth()->check())
                 <div class="loginBtn">
                     <a href="indexc30b.html?a=login"><span>Đăng nhập</span></a>
@@ -977,9 +973,12 @@
             <li><a class="footer-link" href="{{ route('pay') }}"><img src="statics/images/7338c98e.recharge.png"
                                                                       style="transform: scale(1);"/><span>Nạp tiền</span></a><span></span>
             </li>
-            <li><a class="footer-link" href="{{ $setting->telegram }}"><img src="zhuyetu/kj.png"
-                                                                            style="transform: scale(1);"/><span>CSKH</span></a><span></span>
-            </li>
+            @if($setting->telegram)
+                <li><a class="footer-link" href="{{ $setting->telegram }}"><img src="zhuyetu/kj.png"
+                                                                                style="transform: scale(1);"/><span>CSKH</span></a><span></span>
+
+                </li>
+            @endif
             <li><a class="footer-link" href="index6395.html?a=youhui"><img src="zhuyetu/yh.png"
                                                                            style="transform: scale(1);"/><span>Ưu đãi</span></a><span></span>
             </li>
