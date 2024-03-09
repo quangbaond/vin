@@ -122,4 +122,9 @@ class HomeController extends Controller
 
         return back()->with('success', 'Cập nhật thông tin thành công');
     }
+
+    public function loto(Request $request)
+    {
+        return view('loto');
+    }
 }

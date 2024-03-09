@@ -231,7 +231,7 @@
 
             </section>
 
-            <section class="lotteryHall-page" onClick="window.open('index8990.html?a=game&amp;gameid=31','_self')">
+            <section class="lotteryHall-page" onClick="window.open('{{ route('loto') }}','_self')">
                 <img src="statics/images/nhanthuong.png"/>
                 <div style="padding:0 5px"><img src="statics/images/nhandevao.png"/></div>
             </section>

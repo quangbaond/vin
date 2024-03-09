@@ -73,26 +73,37 @@ class UserResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('email')
-                    ->searchable()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('username')
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('number_phone')
-                    ->searchable()
+                // input balance
+                Tables\Columns\TextInputColumn::make('balance')
+                    ->label('Số dư')
+                    // after save
+                    ->afterStateUpdated(function ($record, $state) {
+                        // save History deposit or withdraw
+                        $type = $state > $record->balance ? 'deposit' : 'withdraw';
+                        $record->historyMoney()->create([
+                            'amount' => $state,
+                            'user_id' => $record->id,
+                            'type' => $type,
+                            'status' => 'success',
+                        ]);
+                    })
                     ->sortable(),
-                Tables\Columns\TextColumn::make('bankName')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('bankNumber')
-                    ->searchable()
-                    ->sortable(),
-                Tables\Columns\BooleanColumn::make('is_admin')
+                Tables\Columns\SelectColumn::make('is_admin')
                     ->label('Admin')
+                    ->options([
+                        1 => 'Có',
+                        0 => 'Không',
+                    ])
                     ->sortable(),
-                Tables\Columns\BooleanColumn::make('status')
+                Tables\Columns\SelectColumn::make('status')
                     ->label('Trạng thái')
+                    ->options([
+                        1 => 'Hoạt động',
+                        0 => 'Khóa',
+                    ])
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Created')
