@@ -85,34 +85,37 @@
         <h4>Vinhomes Lottery</h4>
     </div>
     <div class="roomPanel">
-        <a class="jump_room" data-limit="" data-pass="" data-href="/?a=game&amp;gameid=31&amp;roomid=1" href="javascript:;">
-            <img src="/uppic/room/0917_1694955821_9530.png" class="data-img">
-            <!--	<div class="binding">
-                    Sơ cấp
-                     <small ng-show="defaultLanuage != 'en'" class="ng-binding">Đặt cược tối thiểu  500000 VNĐ</small>
-                </div>-->
-        </a>
-        <a class="jump_room" data-limit="" data-pass="" data-href="/?a=game&amp;gameid=31&amp;roomid=2" href="javascript:;">
-            <img src="/uppic/room/0917_1694902486_2679.png" class="data-img">
-            <!--	<div class="binding">
-                    Trung cấp
-                     <small ng-show="defaultLanuage != 'en'" class="ng-binding">Đặt cược tối thiểu  100000000 VNĐ</small>
-                </div>-->
-        </a>
-        <a class="jump_room" data-limit="" data-pass="" data-href="/?a=game&amp;gameid=31&amp;roomid=3" href="javascript:;">
-            <img src="/uppic/room/0917_1694955758_3229.png" class="data-img">
-            <!--	<div class="binding">
-                    Cao cấp
-                     <small ng-show="defaultLanuage != 'en'" class="ng-binding">Đặt cược tối thiểu  300000000 VNĐ</small>
-                </div>-->
-        </a>
-        <a class="jump_room" data-limit="" data-pass="" data-href="/?a=game&amp;gameid=31&amp;roomid=4" href="javascript:;">
-            <img src="/uppic/room/0917_1694955768_2176.png" class="data-img">
-            <!--	<div class="binding">
-                    Phòng VIP
-                     <small ng-show="defaultLanuage != 'en'" class="ng-binding">Đặt cược tối thiểu  800000000 VNĐ</small>
-                </div>-->
-        </a>
+        @if(!$roomName)
+            <a class="jump_room" data-limit="" data-pass="" data-href="/loto?room=so-cap" href="javascript:;">
+                <img src="/uppic/room/0917_1694955821_9530.png" class="data-img">
+                <!--	<div class="binding">
+                        Sơ cấp
+                         <small ng-show="defaultLanuage != 'en'" class="ng-binding">Đặt cược tối thiểu  500000 VNĐ</small>
+                    </div>-->
+            </a>
+            <a class="jump_room" data-limit="" data-pass="" data-href="/loto?room=trung-cap"  href="javascript:;">
+                <img src="/uppic/room/0917_1694902486_2679.png" class="data-img">
+                <!--	<div class="binding">
+                        Trung cấp
+                         <small ng-show="defaultLanuage != 'en'" class="ng-binding">Đặt cược tối thiểu  100000000 VNĐ</small>
+                    </div>-->
+            </a>
+            <a class="jump_room" data-limit="" data-pass="" data-href="/loto?room=cao-cap" href="javascript:;">
+                <img src="/uppic/room/0917_1694955758_3229.png" class="data-img">
+                <!--	<div class="binding">
+                        Cao cấp
+                         <small ng-show="defaultLanuage != 'en'" class="ng-binding">Đặt cược tối thiểu  300000000 VNĐ</small>
+                    </div>-->
+            </a>
+            <a class="jump_room" data-limit="" data-pass="" data-href="/loto?room=vip"  href="javascript:;">
+                <img src="/uppic/room/0917_1694955768_2176.png" class="data-img">
+                <!--	<div class="binding">
+                        Phòng VIP
+                         <small ng-show="defaultLanuage != 'en'" class="ng-binding">Đặt cược tối thiểu  800000000 VNĐ</small>
+                    </div>-->
+            </a>
+        @endif
+
     </div>
 
 </div>

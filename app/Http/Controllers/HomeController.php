@@ -125,6 +125,15 @@ class HomeController extends Controller
 
     public function loto(Request $request)
     {
-        return view('loto');
+        $roomName = $request->query('room');
+        if ($roomName !== null) {
+            if (!in_array($roomName, ['vip', 'so-cap', 'trung-cap', 'cao-cap'])) {
+                return redirect()->route('loto');
+            } else {
+                return view('lotoGame', compact('roomName'));
+            }
+        }
+        return view('loto', compact('roomName'));
     }
+
 }
