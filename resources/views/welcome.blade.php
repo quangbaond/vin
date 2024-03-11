@@ -140,17 +140,14 @@
     <div class="dream-container" id="home-content" style="width: 100%; height: 100vh; ">
         <div class="dream-header">
             @if(!auth()->check())
-                <div class="registerBtn"><a href="{{ route('register') }}"><span>Đăng ký</span></a></div>
+                <div class="registerBtn"><a href="index8759.html?a=register"><span>Đăng ký</span></a></div>
             @endif
             <!--<div >
              <img id="index-logo" alt="" src="/new image/favinpearl.png" />
              <p id="index-name">Vinpearl Lottery</p>
             </div>-->
-                @if(auth()->check())
-                    <div><span>SỐ DƯ：</span>
-                        <span class="numberStyle">{{ auth()->user()->balance }}</span></div>
-                @endif
-
+            <div><span>SỐ DƯ：</span>
+                <span class="numberStyle">{{ auth()->user()->balance }}</span></div>
             @if(!auth()->check())
                 <div class="loginBtn">
                     <a href="{{ route('home') }}"><span>Đăng nhập</span></a>
@@ -234,7 +231,7 @@
 
             </section>
 
-            <section class="lotteryHall-page" onClick="window.open('index8990.html?a=game&amp;gameid=31','_self')">
+            <section class="lotteryHall-page" onClick="window.open('{{ route('loto') }}','_self')">
                 <img src="statics/images/nhanthuong.png"/>
                 <div style="padding:0 5px"><img src="statics/images/nhandevao.png"/></div>
             </section>
@@ -624,107 +621,12 @@
                         </header>
                         <ul style="height: 4.26rem; display: none;" id="div1">
                             <li style="display:flex ;">
-                                <div onclick="window.open('index86a1.html?a=game&amp;gameid=27','_self')">
+                                <div onclick="window.open('{{ route('loto') }}','_self')">
                                     <img src="statics/images/1_99165f6b-ac66-44a8-9c80-48cc823e75bf.png" alt=""/>
                                     <p>May Mắn 28 Bắc Kinh<span>20 phút một kỳ</span></p>
                                 </div>
                             </li>
-                            <li style="display:flex ;">
-                                <div onclick="window.open('index51ec.html?a=game&amp;gameid=28','_self')">
-                                    <img src="statics/images/1_b011dc08-b1ad-4015-ba84-b1d7e4e20014.png" alt=""/>
-                                    <p>May Mắn 28 Canada<span>3 phút rưỡi một kỳ</span></p>
-                                </div>
-                            </li>
-                            <li style="display:flex ;">
-                                <div onclick="window.open('indexed39.html?a=game&amp;gameid=29','_self')">
-                                    <img src="statics/images/1_fc5a0c18-7299-461d-9217-e15b9f2cfe35.png" alt=""/>
-                                    <p>Hội trường<span>1 phút một kỳ</span></p>
-                                </div>
-                            </li>
-                            <li style="display:flex ;">
-                                <div onclick="window.open('index2fb7.html?a=game&amp;gameid=30','_self')">
-                                    <img src="statics/images/1_185b3274-78d4-4c47-b6d0-10149cd34bc5.png" alt=""/>
-                                    <p>Hội trường<span>3 phút một kỳ</span></p>
-                                </div>
-                            </li>
-                            <li style="display: flex;">
-                                <div onclick="window.open('index8990.html?a=game&amp;gameid=31','_self')">
-                                    <img src="statics/images/1_c398d03e-e5ae-4746-960f-aa3bfa7f5555.png" alt=""/>
-                                    <p>May Mắn 28 Singapore<span>5 phút một kỳ</span></p>
-                                </div>
-                            </li>
-                        </ul>
 
-                        <ul style="height: 4.26rem; display: none;" id="div2">
-                            <li style="display: flex;">
-                                <div onclick="window.open('index2c2c.html?a=game&amp;gameid=32','_self')">
-                                    <img src="statics/images/1_45b1b139-43d1-46d1-b211-3062c5a6f0c6.png" alt=""/>
-                                    <p>Xổ số Chongqing<span>Phong cách chơi đa dạng</span></p>
-                                </div>
-                            </li>
-                            <li style="display: flex;">
-                                <div onclick="window.open('indexb09e.html?a=game&amp;gameid=33','_self')">
-                                    <img src="statics/images/1_bf7c89cf-1c60-4705-9d40-16ec63b4586a.png" alt=""/>
-                                    <p>Xổ số Xinjiang<span>Phong cách chơi đa dạng</span></p>
-                                </div>
-                            </li>
-                            <li style="display: flex;">
-                                <div onclick="window.open('index5726.html?a=game&amp;gameid=34','_self')">
-                                    <img src="statics/images/1_1cf2e843-524f-4864-92b2-91f9161d875c.png" alt=""/>
-                                    <p>Xổ số Tianjin<span>Phong cách chơi đa dạng</span></p>
-                                </div>
-                            </li>
-                            <li style="display: flex;">
-                                <div onclick="window.open('indexfe3d.html?a=game&amp;gameid=35','_self')">
-                                    <img src="statics/images/1_87b07bc2-b299-4ab3-a0ad-a47281e41c74.png" alt=""/>
-                                    <p>Xổ số Đài Loan<span>1 phút một kỳ</span></p>
-                                </div>
-                            </li>
-                            <li style="display: flex;">
-                                <div onclick="window.open('indexe077.html?a=game&amp;gameid=36','_self')">
-                                    <img src="statics/images/1_657dbdaf-20a4-4857-bf16-0e01a825bbe9.png" alt=""/>
-                                    <p>Xổ số Singapore<span>2分钟一期</span></p>
-                                </div>
-                            </li>
-                            <li style="display: flex;">
-                                <div onclick="window.open('index5dba.html?a=game&amp;gameid=37','_self')">
-                                    <img src="statics/images/1_eaf0de66-821f-4278-89f4-5a928c82e4a7.png" alt=""/>
-                                    <p>Xổ số may mắn<span>5 phút một kỳ</span></p>
-                                </div>
-                            </li>
-                        </ul>
-
-                        <ul style="height: 4.26rem; display: none;" id="div3">
-                            <li style="display: flex;">
-                                <div onclick="window.open('index9b65.html?a=game&amp;gameid=38','_self')">
-                                    <img src="statics/images/1_027352ff-8a4a-4410-b768-151233871595.png" alt=""/>
-                                    <p>Đua xe may mắn<span>Dự đoán người chiến thắng</span></p>
-                                </div>
-                            </li>
-                            <li style="display: flex;">
-                                <div onclick="window.open('index7820.html?a=game&amp;gameid=39','_self')">
-                                    <img src="statics/images/1_3665bfe5-70a9-4abd-87ce-dd698916b848.png" alt=""/>
-                                    <p>Đua xe Bắc Kinh<span>Dự đoán người chiến thắng</span></p>
-                                </div>
-                            </li>
-                            <li style="display: flex;">
-                                <div onclick="window.open('indexbb4a.html?a=game&amp;gameid=40','_self')">
-                                    <img src="statics/images/1_2ebdedc6-415a-4903-8761-a558fa7a85dd.png" alt=""/>
-                                    <p>PK10 Đài Loan<span>Dự đoán người chiến thắng</span></p>
-                                </div>
-                            </li>
-                            <li style="display: flex;">
-                                <div onclick="window.open('index0018.html?a=game&amp;gameid=41','_self')">
-                                    <img src="statics/images/1_b2665f27-bd38-40a4-ad38-2510997d5660.png" alt=""/>
-                                    <p>PK10 Singapore<span>Dự đoán người chiến thắng</span></p>
-                                </div>
-                            </li>
-                            <li style="display: flex;">
-                                <div onclick="window.open('index83dd.html?a=game&amp;gameid=42','_self')">
-                                    <img src="statics/images/1_b9ac14ee-7c4b-4399-89ab-e1ee3c501777.png" alt=""/>
-                                    <p>PK10 May mắn<span>Dự đoán người chiến thắng</span></p>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                     <div class="block">
