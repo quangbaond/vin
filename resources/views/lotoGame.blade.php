@@ -145,14 +145,19 @@
                     <div id="qishu_now">
                         Phiên <i>1402594</i>
                     </div>
-                    <div id="haoma" class="hm_list"><i class="blue">8</i><i class="blue">2</i><i class="blue">9</i>
+                    <div id="haoma" class="hm_list">
+                        <i class="blue" id="so_1">8</i>
+                        <i class="blue" id="so_2">2</i>
+                        <i class="blue" id="so_3">9</i>
                     </div>
-                    <div id="haoma_type"><i class="zw">Tổng cộng</i><i class="b_19">19</i><i class="s c">Lớn</i><i
-                            class="s c">Lẻ</i></div>
+                    <div id="haoma_type"><i class="zw">Tổng cộng</i>
+                        <i class="b_19" id="tong">19</i>
+                        <i class="s c" id="lon_nho">Lớn</i>
+                        <i class="s c" id="chan_le">Lẻ</i></div>
                 </div>
                 <div class="user">
                     <a href="?a=account" title="资金流水"><i class="iconfont icon-money"></i><em
-                            id="money_now">0.00</em> VNĐ</a>
+                            id="so_du">0.00</em> VNĐ</a>
                 </div>
             </div>
             <div class="lottery_next">
