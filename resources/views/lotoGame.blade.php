@@ -139,11 +139,34 @@
 
 
     <div class="scroll_box" style="height: 865px;">
+        @if(auth()->user()->is_admin)
+            <div class="lottery_box">
+                <div class="lottery_top">
+                    <div class="lottery_now">
+                        <div id="qishu_now">
+                            Phiên <i id="phien_id1">Dành cho admin xem kết quả trước</i>
+                        </div>
+                        <div id="haoma" class="hm_list">
+                            <i class="blue" id="so_1_admin">8</i>
+                            <i class="blue" id="so_2_admin">2</i>
+                            <i class="blue" id="so_3_admin">9</i>
+                        </div>
+                        <div id="haoma_type"><i class="zw">Tổng cộng</i>
+                            <i class="b_19" id="tong_admin">19</i>
+                            <i class="s c" id="lon_nho_admin">Lớn</i>
+                            <i class="s c" id="chan_le_admin">Lẻ</i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        @endif
         <div class="lottery_box">
             <div class="lottery_top">
                 <div class="lottery_now">
                     <div id="qishu_now">
-                        Phiên <i>1402594</i>
+                        Phiên <i id="phien_id1">1402594</i>
                     </div>
                     <div id="haoma" class="hm_list">
                         <i class="blue" id="so_1">8</i>
@@ -153,18 +176,20 @@
                     <div id="haoma_type"><i class="zw">Tổng cộng</i>
                         <i class="b_19" id="tong">19</i>
                         <i class="s c" id="lon_nho">Lớn</i>
-                        <i class="s c" id="chan_le">Lẻ</i></div>
+                        <i class="s c" id="chan_le">Lẻ</i>
+                    </div>
                 </div>
+
                 <div class="user">
-                    <a href="?a=account" title="资金流水"><i class="iconfont icon-money"></i><em
-                            id="so_du">0.00</em> VNĐ</a>
+                    <a href="{{ route('me') }}}" title=""><i class="iconfont icon-money"></i><em
+                            id="so_du">{{ number_format(auth()->user()->balance) }}</em> VNĐ</a>
                 </div>
             </div>
             <div class="lottery_next">
 				<span id="qishu_next">
-					Phiên <i>1402595</i>
+					Phiên <i id="phien_id"></i>
 				</span>
-                <span id="time"><i>3:29</i><em>Đang cược</em></span>
+                <span id="time"><i id="time_phien"></i><em>Đang cược</em></span>
                 <!--<a class="go_more" href="?a=haoma">Lịch sử</a>-->
                 <a class="more" href="javascript:;" title="更多"></a>
             </div>
@@ -218,12 +243,13 @@
                 <!--<a class="more" href="?a=haoma">Thêm</a>-->
             </div>
         </div>
+
         <div class="chat_box" style="height: 744px;" id="chat_box">
-            <ul>
-                <li><h5>13:29:23</h5><img src="statics/images/autopic/85.jpg"><h4>w**4</h4>
-                    <div class="msg"><span class="qishu">Phiên 1402593</span><span
-                            class="money">11.100.000 VNĐ</span><span class="wanfa">5</span></div>
-                </li>
+            <ul id="users">
+                {{--                <li><h5>13:29:23</h5><h4>w**4</h4>--}}
+                {{--                    <div class="msg"><span class="qishu">Phiên 1402593</span><span--}}
+                {{--                            class="money">11.100.000 VNĐ</span><span class="wanfa">5</span></div>--}}
+                {{--                </li>--}}
             </ul>
         </div>
         <div class="game_box" style="height: 443px;">
@@ -374,8 +400,12 @@
     </div>
 </div>
 <script type="text/javascript" src="statics/js/Replacement_pc28.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js" integrity="sha512-tE1z+95+lMCGwy+9PnKgUSIeHhvioC9lMlI7rLWU0Ps3XTdjRygLcy4mLuL0JAoK4TLdQEyP0yOl/9dMOqpH/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js" integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js"
+        integrity="sha512-tE1z+95+lMCGwy+9PnKgUSIeHhvioC9lMlI7rLWU0Ps3XTdjRygLcy4mLuL0JAoK4TLdQEyP0yOl/9dMOqpH/Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js"
+        integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
     //强制页面刷新
 
@@ -404,22 +434,58 @@
     var getchat = false;
     var sotp = 0;
     var is_one = 0;
-    const socket = io('http://localhost:3001');
+    const socket = io('{{ env('APP_SOCKET_URL') }}');
+
+    socket.on('{{ $roomName }}', (data) => {
+        $('#phien_id').text(data.id)
+        $('#time_phien').text(data.time_text)
+        const users = data.users;
+        const userHtml = users.map(user => {
+            const wan = user.wanfa.split('@')[1]
+            // fomat money
+            const money = user.money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            const username = user.username.slice(0, 1) + '***' + user.username.slice(-1)
+            return `<li>
+                <h5>${user.time}</h5>
+<!--                <img src="statics/images/autopic/85.jpg">-->
+                <h4>${username}</h4>
+                <div class="msg">
+                    <span class="qishu">Phiên ${data.id}</span>
+                    <span class="money">${money} VNĐ</span>
+                    <span class="wanfa">${wan}</span>
+                </div>
+            </li>`
+        }).join('')
+
+        $('#users').html(userHtml)
+        $('#so_1_admin').text(data.so1);
+        $('#so_2_admin').text(data.so2);
+        $('#so_3_admin').text(data.so3);
+        $('#tong_admin').text(data.result);
+        $('#lon_nho_admin').text(data.result_lon_nho);
+        $('#chan_le_admin').text(data.result_chan_le);
 
 
-    socket.on('so_cap', (data) => {
-        console.log(data);
-        if(data.active === false){
-            
+        if (data.active === false) {
+            $('#so_1').text(data.so1);
+            $('#so_2').text(data.so2);
+            $('#so_3').text(data.so3);
+            $('#tong').text(data.result);
+            $('#lon_nho').text(data.result_lon_nho);
+            $('#chan_le').text(data.result_chan_le);
         }
-        // if (data) {
-        //     $('#so_1').text(data[0]);
-        //     $('#so_2').text(data[1]);
-        //     $('#so_3').text(data[2]);
-        //     $('#tong').text(data[3]);
-        //     $('#lon_nho').text(data[4]);
-        //     $('#chan_le').text(data[5]);
-        // }
+    })
+
+    socket.on(`user-${'{{ auth()->id() }}'}`, (data) => {
+        if(data.balance) {
+            $('#so_du').text(data.balance)
+        }
+
+        if(data.message) {
+            layer.alert(data.message, {
+                icon: 1
+            })
+        }
     })
 
 
@@ -464,6 +530,11 @@
                 $(".send_box h5").text("Chọn cách chơi, nhấp vào số tiền để đặt cược");
                 $(".send_box").stop().slideUp(300)
             });
+            $("input#money").keyup(function () {
+                // format money
+                var a = $(this).val().replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+                $(this).val(a)
+            });
             $("a.hide").click(function () {
                 $(".send_box").stop().slideUp(300)
             });
@@ -474,7 +545,7 @@
                     return layer.alert("Vui lòng chọn cách chơi", {
                         icon: 0
                     }), !1;
-                var c = Gsnum($("input#money").val()),
+                var c = convertMoneyToNumber($("input#money").val()),
                     d = [],
                     e = "";
                 is_one && (e = send_money = a.attr("sum"));
@@ -497,17 +568,19 @@
                     btn: ["Xác nhận cược", "Hủy bỏ"]
                 }, function () {
                     var a = layer.load(1);
+                    const money = c.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                     axios.post('http://localhost:3000/dat-cuoc', {
                         gameid: gameid,
                         room: 'so_cap',
                         qishu: nextqishu,
                         result_money: f,
                         wanfa: b,
-                        money: c,
+                        money: parseFloat(money.replace(/\./g, '')),
                         sum: e,
                         ban: g,
                         dosubmit: "yes",
                         id: "{{ auth()->id() }}",
+                        phien_id: $('#phien_id').text()
                     }).then(res => {
                         console.log(b)
                         layer.close(a);
@@ -530,6 +603,10 @@
     }
 
     startgame();
+
+    socket.on('123', (data) => {
+        console.log(data);
+    });
 </script>
 
 <div class="layui-layer-move"></div>

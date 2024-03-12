@@ -727,24 +727,23 @@ iframe {
 	overflow: hidden;
 	background-color: #eed57b;
 	padding: 5px 10px;
-	margin-left: 64px;
 	-moz-border-radius: 9px;
 	-webkit-border-radius: 9px;
 	border-radius: 9px;
 }
 
-.chat_box ul li .msg:after {
-	position: absolute;
-	top: 42px;
-	left: 74px;
-	background-color: #fff;
-	content: ' ';
-	width: 0;
-	height: 0;
-	border-top: 1px solid transparent;
-	border-right: 10px solid #eed57b;
-	border-bottom: 10px solid transparent;
-}
+/*.chat_box ul li .msg:after {*/
+/*	position: absolute;*/
+/*	top: 42px;*/
+/*	left: 74px;*/
+/*	background-color: #fff;*/
+/*	content: ' ';*/
+/*	width: 0;*/
+/*	height: 0;*/
+/*	border-top: 1px solid transparent;*/
+/*	border-right: 10px solid #eed57b;*/
+/*	border-bottom: 10px solid transparent;*/
+/*}*/
 
 .chat_box ul li .msg span {
 	display: inline-block;
@@ -1350,7 +1349,7 @@ iframe {
 .send_box .btn_li input {
 	height: 30px;
 	border: none;
-	width: 80px;
+	width: 150px;
 	padding: 0 8px;
 	vertical-align: bottom;
 	outline: none;

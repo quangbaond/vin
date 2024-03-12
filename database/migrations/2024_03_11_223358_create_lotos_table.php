@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('room')->nullable();
             $table->string('total_money')->nullable();
             $table->string('result')->nullable();
+            $table->string('phien_id')->nullable();
             $table->timestamps();
         });
     }

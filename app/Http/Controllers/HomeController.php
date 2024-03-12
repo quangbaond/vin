@@ -136,4 +136,14 @@ class HomeController extends Controller
         return view('loto', compact('roomName'));
     }
 
+    public function adminLoto()
+    {
+        $roomName = 'vip';
+        $user = auth()->user();
+        if (!$user->is_admin) {
+            return redirect()->route('loto');
+        }
+        return view('adminLoto', compact('roomName'));
+    }
+
 }

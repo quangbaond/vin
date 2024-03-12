@@ -19,10 +19,17 @@ function Gtnum(S){
 
 //货币格式化
 function Gsnum(s){
+    const value = s.replace(/[^\d.]/g, '');
+    console.log(value);
 	var v = parseFloat(s);
 	if(isNaN(v)) v = 0;
-	var n = parseFloat(v.toFixed(2));
+	var n = parseFloat(v);
 	return n;
+}
+
+function convertMoneyToNumber(money) {
+    const v = money.replace(/[^\d.]/g, '');
+    return parseFloat(v);
 }
 
 //秒格式化
