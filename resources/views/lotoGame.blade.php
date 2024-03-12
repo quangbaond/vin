@@ -374,6 +374,8 @@
     </div>
 </div>
 <script type="text/javascript" src="statics/js/Replacement_pc28.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.4/socket.io.js" integrity="sha512-tE1z+95+lMCGwy+9PnKgUSIeHhvioC9lMlI7rLWU0Ps3XTdjRygLcy4mLuL0JAoK4TLdQEyP0yOl/9dMOqpH/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.7/axios.min.js" integrity="sha512-NQfB/bDaB8kaSXF8E77JjhHG5PM6XVRxvHzkZiwl3ddWCEPBa23T76MuWSwAJdMGJnmQqM0VeY9kFszsrBEFrQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script type="text/javascript">
     //强制页面刷新
 
@@ -402,12 +404,27 @@
     var getchat = false;
     var sotp = 0;
     var is_one = 0;
+    const socket = io('http://localhost:3001');
+
+
+    socket.on('so_cap', (data) => {
+        console.log(data);
+        if(data.active === false){
+            
+        }
+        // if (data) {
+        //     $('#so_1').text(data[0]);
+        //     $('#so_2').text(data[1]);
+        //     $('#so_3').text(data[2]);
+        //     $('#tong').text(data[3]);
+        //     $('#lon_nho').text(data[4]);
+        //     $('#chan_le').text(data[5]);
+        // }
+    })
+
 
     function startgame() {
         $(function () {
-            setInterval(function () {
-                k('<li class="system"><h5>Chúc bạn trúng thưởng</h5></li>');
-            }, 3E4);//30秒刷新一次
             $("a.game_btn").click(function () {
                 $(this).hasClass("a") ? ($(this).removeClass("a"), $(".main .game_box").stop().slideUp(300), $(".main .chat_boxs").stop().slideDown(300), $(this).text("Đặt cược")) : ($(this).addClass("a"), $(".main .game_box").stop().slideDown(300), $(".main .chat_boxs").stop().slideUp(300), $(this).text("Trở lại"))
             });
@@ -451,11 +468,7 @@
                 $(".send_box").stop().slideUp(300)
             });
             $("a#send").click(function () {
-                if (0 == nextqishu)
-                    return layer.alert("Chưa nhận được số kỳ...", {
-                        icon: 0
-                    }),
-                        !1;
+
                 var a = $("#game a.a");
                 if (1 > a.length)
                     return layer.alert("Vui lòng chọn cách chơi", {
@@ -484,42 +497,31 @@
                     btn: ["Xác nhận cược", "Hủy bỏ"]
                 }, function () {
                     var a = layer.load(1);
-                    $.ajax({
-                        url: "?a=ajax_touzhu",
-                        data: {
-                            gameid: gameid,
-                            roomid: roomid,
-                            gamename: gamename,
-                            qishu: nextqishu,
-                            wanfa: b,
-                            money: c,
-                            sum: e,
-                            ban: g,
-                            dosubmit: "yes"
-                        },
-                        type: "POST",
-                        dataType: "json",
-                        cache: !1,
-                        success: function (b) {
-                            layer.close(a);
-                            "y" == b.status ? (layer.msg(b.info, {
-                                icon: 1
-                            }), b = Date.parse(new Date), z(b)) : "y" == b.login ? layer.confirm(b.info, {
-                                btn: ["Đi đến trang đăng nhập",
-                                    "Hủy bỏ"]
-                            }, function () {
-                                location.href = "?a=login"
-                            }, function () {
-                            }) : layer.msg(b.info, {
-                                icon: 0
-                            })
-                        },
-                        error: function () {
-                            layer.close(a);
-                            layer.alert("Yêu cầu đến máy chủ thất bại, vui lòng thử lại...", {
-                                icon: 0
-                            })
-                        }
+                    axios.post('http://localhost:3000/dat-cuoc', {
+                        gameid: gameid,
+                        room: 'so_cap',
+                        qishu: nextqishu,
+                        result_money: f,
+                        wanfa: b,
+                        money: c,
+                        sum: e,
+                        ban: g,
+                        dosubmit: "yes",
+                        id: "{{ auth()->id() }}",
+                    }).then(res => {
+                        console.log(b)
+                        layer.close(a);
+                        layer.alert(res.data.message, {
+                            icon: 1
+                        })
+                        layer.close(g);
+
+                    }).catch(err => {
+                        console.log(err)
+                        layer.close(a);
+                        layer.alert(err.response.data.message, {
+                            icon: 0
+                        })
                     })
                 }, function () {
                 })
