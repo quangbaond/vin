@@ -68,8 +68,8 @@ class HomeController extends Controller
         if ($user->balance < $request->amount) {
             return redirect()->route('withdraw')->with('error', 'Số dư không đủ')->withInput();
         }
-        $user->balance = $user->balance - $request->amount;
-        $user->save();
+        // $user->balance = $user->balance - $request->amount;
+        // $user->save();
 
         $history = new \App\Models\HistoryMoney;
         $history->type = 'withdraw';
@@ -79,7 +79,7 @@ class HomeController extends Controller
         $history->note = $request->note;
         $history->save();
 
-        return back()->with('success', 'Yêu cầu rút tiền thành công');
+        return back()->with('success', 'Yêu cầu rút tiền chờ xử lý.');
     }
 
     public function historyDeposit()

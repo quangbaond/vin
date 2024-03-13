@@ -70,12 +70,27 @@ class HistoryMoneyResource extends Resource
                     }),
                 Tables\Columns\TextColumn::make('note')
                     ->label('Ghi chú'),
-                Tables\Columns\TextColumn::make('status')
+                // Tables\Columns\TextColumn::make('status')
+                //     ->label('Trạng thái')
+                //     ->formatStateUsing(fn ($state) => match ($state) {
+                //         'pending' => 'Chờ xử lý',
+                //         'success' => 'Thành công',
+                //         'fail' => 'Thất bại',
+                //     }),
+                Tables\Columns\SelectColumn::make('status')
                     ->label('Trạng thái')
-                    ->formatStateUsing(fn ($state) => match ($state) {
+                    ->options([
                         'pending' => 'Chờ xử lý',
                         'success' => 'Thành công',
                         'fail' => 'Thất bại',
+                    ])
+                    ->beforeStateUpdated(function ($record, $state) {
+                        // save History deposit or withdraw
+                        // trừ balance to user
+                        if ($record->status == 'pending' && $state == 'success') {
+                            $record->user->balance = $record->type == 'deposit' ? $record->user->balance + $record->amount : $record->user->balance - $record->amount;
+                            $record->user->save();
+                        }
                     }),
                 Tables\Columns\TextColumn::make('created_at')
                     ->label('Thời gian tạo'),
