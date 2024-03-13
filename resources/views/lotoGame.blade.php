@@ -499,6 +499,20 @@
             })
         }
     })
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
 
 
     function startgame() {
@@ -542,8 +556,7 @@
                 $(".send_box h5").text("Chọn cách chơi, nhấp vào số tiền để đặt cược");
                 $(".send_box").stop().slideUp(300)
             });
-            $("input#money").keyup(function () {
-                // format money
+            $("input#money").keyup(function(){
                 var a = $(this).val().replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                 $(this).val(a)
             });

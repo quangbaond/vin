@@ -53,13 +53,16 @@ class HomeController extends Controller
     public function withdrawPost(Request $request)
     {
         $request->validate([
-            'amount' => 'required|numeric|min:1',
+            'amount' => 'required',
         ], [
             'amount.required' => 'Vui lòng nhập số tiền',
-            'amount.numeric' => 'Số tiền phải là số',
-            'amount.min' => 'Số tiền phải lớn hơn 0',
         ]);
-
+        
+        // parse amount to float 11.111.111
+        $request->amount = str_replace(',', '', $request->amount);
+        $request->amount = str_replace('.', '', $request->amount);
+        $request->amount = str_replace(' ', '', $request->amount);
+  
         $user = auth()->user();
 
         if ($user->balance < $request->amount) {

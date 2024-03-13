@@ -85,7 +85,7 @@
                 <div class="form_div">
                     <ul>
                         <li>
-                            <input class="inputxt" type="number"  name="amount" value="{{ old('amount') }}"
+                            <input class="inputxt" type="text" id="inputxt"  name="amount" value="{{ old('amount') }}"
                                    placeholder="Nhập số tiền muốn rút">
                         </li>
                         @if(session()->has('error'))
@@ -105,5 +105,11 @@
         </div>
     </div>
 </div>
+<script>
+    $('#inputxt').keyup(function () {
+        var a = $(this).val().replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        $(this).val(a)
+    });
+</script>
 </body>
 </html>
