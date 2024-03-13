@@ -611,9 +611,12 @@
                     }).then(res => {
                         console.log(b)
                         layer.close(a);
+                        // layer.msg edit text button
+
                         layer.msg(err.response.data.message, {
                             icon: 1,
-                            time: 2000
+                            time: 2000,
+                            btn: ['OK']
                         })
                         layer.close(g);
 
@@ -622,7 +625,8 @@
                         layer.close(a);
                         layer.msg(err.response.data.message, {
                             icon: 0,
-                            time: 2000
+                            time: 2000,
+                            btn: ['OK']
                         })
                         
                     })
