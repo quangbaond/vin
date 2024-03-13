@@ -495,7 +495,8 @@
 
         if(data.message) {
             layer.alert(data.message, {
-                icon: 1
+                icon: 1,
+                btn: ['OK']
             })
         }
     })
