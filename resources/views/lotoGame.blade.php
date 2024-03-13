@@ -611,17 +611,20 @@
                     }).then(res => {
                         console.log(b)
                         layer.close(a);
-                        layer.alert(res.data.message, {
-                            icon: 1
+                        layer.msg(err.response.data.message, {
+                            icon: 1,
+                            time: 2000
                         })
                         layer.close(g);
 
                     }).catch(err => {
                         console.log(err)
                         layer.close(a);
-                        layer.alert(err.response.data.message, {
-                            icon: 0
+                        layer.msg(err.response.data.message, {
+                            icon: 0,
+                            time: 2000
                         })
+                        
                     })
                 }, function () {
                 })
