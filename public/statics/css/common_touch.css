@@ -1268,7 +1268,7 @@ iframe {
 .send_box {
 	display: none;
 	position: fixed;
-	bottom: 49px;
+	bottom: 55px;
 	width: 96%;
 	max-width: 692px;
 	background-color: #f60;

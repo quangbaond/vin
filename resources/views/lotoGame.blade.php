@@ -149,7 +149,23 @@
         <a class="pic" href="?a=user" title="Thông tin cá nhân">
         </a>
         <a class="order" href="?a=order" title="Danh sách đầu tư của tôi"><i class="iconfont icon-liebiao"></i></a>
-        <h4>Sơ cấp</h4>
+        @switch($roomName)
+            @case('so-cap')
+            <h4>Sơ cấp</h4>
+            @break
+            @case('trung-cap')
+            <h4>Trung Cấp</h4>
+            @break
+            @case('cao-cap')
+            <h4>Cao Cấp</h4>
+            @break
+            @case('vip')
+            <h4>Vip</h4>
+            @break
+            @default
+            <h4>Trò chơi</h4>
+            @break
+        @endswitch
     </div>
 
 

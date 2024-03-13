@@ -31,6 +31,11 @@
         c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
     })(document);
 </script>
+<style>
+    #smartsupp-widget-container div {
+        bottom: 30% !important;
+    }
+</style>
 <body>
     <div class="center">
         <h1>Phòng đã đóng cửa, Vui lòng quay lại sau</h1>

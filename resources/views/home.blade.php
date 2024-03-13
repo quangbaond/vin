@@ -103,6 +103,11 @@
         c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
     })(document);
 </script>
+<style>
+    #smartsupp-widget-container div {
+        bottom: 30% !important;
+    }
+</style>
 </head>
 <body>
 <script type="text/javascript" src="statics/js/touchslide.js"></script>
@@ -898,15 +903,6 @@
             <li><a class="footer-link" href="{{ route('pay') }}"><img src="statics/images/7338c98e.recharge.png"
                                                                       style="transform: scale(1);"/><span>Nạp tiền</span></a><span></span>
             </li>
-            @if($setting->telegram)
-                <li><a class="footer-link" href="{{ $setting->telegram }}"><img src="zhuyetu/kj.png"
-                                                                                style="transform: scale(1);"/><span>CSKH</span></a><span></span>
-
-                </li>
-            @endif
-                <li><a class="footer-link" href="index6395.html?a=youhui"><img src="zhuyetu/yh.png"
-                                                                               style="transform: scale(1);"/><span>Ưu đãi</span></a><span></span>
-                </li>
                 <li><a class="footer-link" href="{{ route('me') }}"><img src="zhuyetu/wd.png"
                                                                          style="transform: scale(1);"/><span>Của tôi</span></a><span></span>
                 </li>

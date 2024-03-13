@@ -52,6 +52,11 @@
         c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
     })(document);
 </script>
+<style>
+    #smartsupp-widget-container div {
+        bottom: 30% !important;
+    }
+</style>
 </head>
 <body><link type="text/css" rel="stylesheet" href="statics/css/style.mobile.css">
 <link type="text/css" rel="stylesheet" href="statics/css/swiper.min.css">

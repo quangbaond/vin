@@ -52,6 +52,11 @@
         c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
     })(document);
 </script>
+<style>
+    #smartsupp-widget-container div {
+        bottom: 30% !important;
+    }
+</style>
 </head>
 <body><style type="text/css">
     .roomPanel{
