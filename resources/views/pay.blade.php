@@ -42,10 +42,7 @@
             },false);
         }
     </script>
-</head>
-<body>
-
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 <meta name="renderer" content="webkit">
 <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
 <meta name="renderer" content="webkit">
@@ -56,6 +53,20 @@
 <title>Vinhomes </title>
 <link href="statics/css/app.cc8ec.css" rel="stylesheet">
 <style>#app, .footer-nav, .dream-header, .header-nav{max-width:750px;margin:auto}.my_item_more img{display:block;margin:auto;width:auto}</style>
+<script type="text/javascript">
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = '{{ env('SMARTSUPP_KEY') }}';
+    window.smartsupp||(function(d) {
+        var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+        s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+        c.type='text/javascript';c.charset='utf-8';c.async=true;
+        c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+    })(document);
+</script>
+</head>
+<body>
+
+
 <div class="main">
     <div class="header">
         <a class="back" href="{{ route('home') }}" title="Trở lại"><i class="iconfont icon-fanhui"></i></a>
@@ -80,17 +91,18 @@
             </form>
         </div>
     </div>
-</div>
 
-<footer class="footer-nav">
+    <footer class="footer-nav">
     <div>
-        <li><a class="footer-link active" aria-current="page" href="?a="><img src="/zhuyetu/zy1.png" style="transform: scale(1);"><span style="color: red;">Trang chủ</span></a><span></span></li>
+        <li><a class="footer-link active" aria-current="page" href="{{ route('home') }}"><img src="/zhuyetu/zy1.png" style="transform: scale(1);"><span style="color: red;">Trang chủ</span></a><span></span></li>
         <li><a class="footer-link" href="?a=pay"><img src="statics/images/7338c98e.recharge.png" style="transform: scale(1);"><span>Nạp tiền</span></a><span></span></li>
         <li><a class="footer-link" href="{{ $setting->telegram }}"><img src="/zhuyetu/kj.png" style="transform: scale(1);"><span>CSKH</span></a><span></span></li>
-        <li><a class="footer-link" href="?a=youhui"><img src="/zhuyetu/yh.png" style="transform: scale(1);"><span>Ưu đãi</span></a><span></span></li>
         <li><a class="footer-link" href="{{ route('me') }}"><img src="/zhuyetu/wd.png" style="transform: scale(1);"><span>Của tôi</span></a><span></span></li>
     </div>
     <p></p>
 </footer>
+</div>
+
+
 </body>
 </html>
