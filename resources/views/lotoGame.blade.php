@@ -573,7 +573,7 @@
                     btn: ["Xác nhận cược", "Hủy bỏ"]
                 }, function () {
                     var a = layer.load(1);
-                    axios.post('http://localhost:3000/dat-cuoc', {
+                    axios.post('{{env('API_URL')}}/dat-cuoc', {
                         gameid: gameid,
                         room: 'so_cap',
                         qishu: nextqishu,
