@@ -49,10 +49,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6'],
+            'code' => ['required', 'string', 'max:255', 'exists:users,code'],
         ], [
             'name.required' => 'Vui lòng nhập tên đăng nhập',
             'password.required' => 'Vui lòng nhập mật khẩu',
@@ -60,6 +62,8 @@ class RegisterController extends Controller
             'password.min' => 'Mật khẩu phải có ít nhất 6 ký tự',
             'username.unique' => 'Tài khoản đã tồn tại',
             'username.required' => 'Vui lòng nhập tài khoản',
+            'code.required' => 'Vui lòng nhập mã người mời',
+            'code.exists' => 'Mã người mời không hợp lệ',
         ]);
     }
 
@@ -71,11 +75,21 @@ class RegisterController extends Controller
      */
     protected function create(array $data): User
     {
-        return User::create([
-            'name' => $data['name'],
-            'username' => $data['username'],
-            'password' => Hash::make($data['password']),
-            'code' => 'USR-'.rand(1000, 9999),
-        ]);
+        if(User::count() == 0) {
+            return User::create([
+                'name' => $data['name'],
+                'username' => $data['username'],
+                'password' => Hash::make($data['password']),
+                'code' => 'Vin-0001',
+                'role' => 'admin',
+            ]);
+        } else {
+            return User::create([
+                'name' => $data['name'],
+                'username' => $data['username'],
+                'password' => Hash::make($data['password']),
+                'code' => 'Vin-' . str_pad(User::count() + 1, 4, '0', STR_PAD_LEFT),
+            ]);
+        }
     }
 }

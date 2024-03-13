@@ -124,7 +124,6 @@
                         <span class="error">{{ $errors->first('password') }}</span>
                     @endif
                     <div class="NameReg-title">
-
                         Vui lòng nhập kết hợp 6-16 ký tự chữ cái và số
                     </div>
                     <div class="LoginInput">
@@ -138,7 +137,6 @@
                         <span class="error">{{ $errors->first('code') }}</span>
                     @endif
                     <div class="NameReg-title">
-
                         Vui lòng nhập mã giới thiệu
                     </div>
                     <div class="LoginInput">
