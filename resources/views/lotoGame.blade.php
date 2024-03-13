@@ -214,7 +214,7 @@
             </div>
             <div class="haoma_box">
                 <ul id="kq_loto">
-                    @foreach($lotos as $loto)
+                    <!-- @foreach($lotos as $loto)
                         <li>
                             <span>Phiên {{ $loto->phien_id }}</span>
                             <span>
@@ -226,7 +226,7 @@
                             </span>
                         </li>
 
-                    @endforeach
+                    @endforeach -->
                 </ul>
             </div>
         </div>
