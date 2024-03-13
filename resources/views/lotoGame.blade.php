@@ -613,10 +613,10 @@
                         layer.close(a);
                         // layer.msg edit text button
 
-                        layer.alert(response.data.message, {
-                            icon: 1,
-                            btn: ['OK']
-                        })
+                        // layer.alert(response.data.message, {
+                        //     icon: 1,
+                        //     btn: ['OK']
+                        // })
                         layer.close(g);
 
                     }).catch(err => {
