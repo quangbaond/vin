@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('game_id')->nullable();
             $table->string('wanfan')->nullable();
-            $table->string('money')->nullable();
-            $table->string('result_money')->nullable();
+            $table->bigInteger('money')->nullable();
+            $table->bigInteger('result_money')->nullable();
             $table->string('room')->nullable();
             $table->string('total_money')->nullable();
             $table->string('result')->nullable();

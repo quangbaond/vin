@@ -60,21 +60,27 @@ class User extends Authenticatable implements FilamentUser
 
     public function historyDeposit(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(HistoryMoney::class)->where('type', 'deposit');
+        return $this->hasMany(HistoryMoney::class)->where('type', 'deposit')->orderBy('created_at', 'desc');
     }
 
     public function historyWithdraw(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(HistoryMoney::class)->where('type', 'withdraw');
+        return $this->hasMany(HistoryMoney::class)->where('type', 'withdraw')->orderBy('created_at', 'desc');
     }
 
     public function historyInvest(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
-        return $this->hasMany(HistoryInvest::class);
+        return $this->hasMany(HistoryInvest::class)->orderBy('created_at', 'desc');
     }
 
     public function canAccessPanel(Panel $panel): bool
     {
         return $this->is_admin;
+    }
+
+    // balance text
+    public function getBalanceTextAttribute(): string
+    {
+        return number_format($this->balance, 0, ',', '.');
     }
 }

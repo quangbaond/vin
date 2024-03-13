@@ -134,9 +134,6 @@
 <body>
 
 
-<!--[if lt IE 9]>
-不兼容IE9以下浏览器 请去更新浏览器,推荐使用 Chrome浏览器
-<![endif]-->
 <div id="app">
     <div class="my-content-wrapper style=" width:="" 525px
     ";="" "="">
@@ -150,7 +147,7 @@
                         <h3 class="info-user">TÀI KHOẢN :&nbsp;&nbsp;&nbsp;{{ auth()->user()->username }}</h3>
                         <h4 class="info-user">ID :&nbsp;&nbsp;&nbsp;{{ auth()->user()->code }}</h4>
 
-                        <span class="info-user">SỐ DƯ     :&nbsp;&nbsp;&nbsp;{{ auth()->user()->balance }}&nbsp; VNĐ</span>
+                        <span class="info-user">SỐ DƯ     :&nbsp;&nbsp;&nbsp;{{ auth()->user()->balance_text }}&nbsp; VNĐ</span>
                     </div>
                 </div>
             </div>

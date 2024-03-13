@@ -147,7 +147,7 @@
              <p id="index-name">Vinpearl Lottery</p>
             </div>-->
             <div><span>SỐ DƯ：</span>
-                <span class="numberStyle">{{ auth()->user()->balance }}</span></div>
+                <span class="numberStyle">{{ auth()->user()->balance_text }}</span></div>
             @if(!auth()->check())
                 <div class="loginBtn">
                     <a href="{{ route('home') }}"><span>Đăng nhập</span></a>

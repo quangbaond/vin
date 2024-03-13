@@ -62,10 +62,10 @@ class HomeController extends Controller
 
         $user = auth()->user();
 
-        if ($user->money < $request->amount) {
+        if ($user->balance < $request->amount) {
             return redirect()->route('withdraw')->with('error', 'Số dư không đủ')->withInput();
         }
-        $user->money = $user->money - $request->amount;
+        $user->balance = $user->balance - $request->amount;
         $user->save();
 
         $history = new \App\Models\HistoryMoney;
@@ -130,20 +130,32 @@ class HomeController extends Controller
             if (!in_array($roomName, ['vip', 'so-cap', 'trung-cap', 'cao-cap'])) {
                 return redirect()->route('loto');
             } else {
-                return view('lotoGame', compact('roomName'));
+                $roomId = 0;
+                if($roomName === 'so-cap') {
+                    $roomId = 1;
+                } else if($roomName === 'trung-cap') {
+                    $roomId = 2;
+                } else if($roomName === 'cao-cap') {
+                    $roomId = 3;
+                } else if($roomName === 'vip') {
+                    $roomId = 4;
+                }
+                $room = \App\Models\Room::query()->find($roomId);
+
+                if($room === null) {
+                    return redirect()->route('loto');
+                }
+                $openTime = \Carbon\Carbon::parse($room->open_time);
+                $closeTime = \Carbon\Carbon::parse($room->close_time);
+                $now = \Carbon\Carbon::now();
+                if($now->lt($openTime) || $now->gt($closeTime)) {
+                    return view('roomClosed');
+                } else {
+                    return view('lotoGame', compact('roomName'));
+                }
             }
         }
+
         return view('loto', compact('roomName'));
     }
-
-    public function adminLoto()
-    {
-        $roomName = 'vip';
-        $user = auth()->user();
-        if (!$user->is_admin) {
-            return redirect()->route('loto');
-        }
-        return view('adminLoto', compact('roomName'));
-    }
-
 }

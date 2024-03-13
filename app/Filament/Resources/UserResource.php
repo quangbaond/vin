@@ -79,17 +79,30 @@ class UserResource extends Resource
                 // input balance
                 Tables\Columns\TextInputColumn::make('balance')
                     ->label('Số dư')
+                    ->rules(['required', 'numeric'])
+                    ->type('number')
                     // after save
-                    ->afterStateUpdated(function ($record, $state) {
-                        // save History deposit or withdraw
-                        $type = $state > $record->balance ? 'deposit' : 'withdraw';
-                        $record->historyMoney()->create([
-                            'amount' => $state,
-                            'user_id' => $record->id,
-                            'type' => $type,
-                            'status' => 'success',
-                        ]);
-                    })
+//                    ->afterStateUpdated(function ($record, $state) {
+//                        // save History deposit or withdraw
+//                        $type = $state > $record->balance ? 'deposit' : 'withdraw';
+//                        dd($state, $record->balance);
+//                        $record->historyMoney()->create([
+//                            'amount' => $state,
+//                            'user_id' => $record->id,
+//                            'type' => $type,
+//                            'status' => 'success',
+//                        ]);
+//                    })
+                        ->beforeStateUpdated(function ($record, $state) {
+                            // save History deposit or withdraw
+                            $type = $state > $record->balance ? 'deposit' : 'withdraw';
+                            $record->historyMoney()->create([
+                                'amount' => $state,
+                                'user_id' => $record->id,
+                                'type' => $type,
+                                'status' => 'success',
+                            ]);
+                        })
                     ->sortable(),
                 Tables\Columns\SelectColumn::make('is_admin')
                     ->label('Admin')
@@ -113,7 +126,7 @@ class UserResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+//                Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\DeleteAction::make(),
             ])

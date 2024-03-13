@@ -478,7 +478,9 @@
 
     socket.on(`user-${'{{ auth()->id() }}'}`, (data) => {
         if(data.balance) {
-            $('#so_du').text(data.balance)
+            let balance = data.balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            // format money
+            $('#so_du').text(balance)
         }
 
         if(data.message) {
@@ -545,7 +547,7 @@
                     return layer.alert("Vui lòng chọn cách chơi", {
                         icon: 0
                     }), !1;
-                var c = convertMoneyToNumber($("input#money").val()),
+                var c = Gsnum($("input#money").val()) * 1000,
                     d = [],
                     e = "";
                 is_one && (e = send_money = a.attr("sum"));
@@ -564,18 +566,20 @@
                 });
                 var g =
                     $("input#ban").val();
-                layer.confirm($(".send_box h5").text() + "，Tổng số tiền：" + f, {
+
+                let result_money = f * 1000;
+                result_money = result_money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                layer.confirm("Tổng số tiền：" + result_money, {
                     btn: ["Xác nhận cược", "Hủy bỏ"]
                 }, function () {
                     var a = layer.load(1);
-                    const money = c.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
                     axios.post('http://localhost:3000/dat-cuoc', {
                         gameid: gameid,
                         room: 'so_cap',
                         qishu: nextqishu,
-                        result_money: f,
+                        result_money: parseFloat(f) * 1000,
                         wanfa: b,
-                        money: parseFloat(money.replace(/\./g, '')),
+                        money: parseFloat(c) * 1000,
                         sum: e,
                         ban: g,
                         dosubmit: "yes",

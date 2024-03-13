@@ -83,7 +83,7 @@
 
             </div>
         </div>
-        <h4>Hồ sơ rút tiền</h4>
+        <h4>Hồ sơ Nạp tiền</h4>
 
     </div>
 
@@ -107,9 +107,9 @@
                                 @if($item->status == 'pending')
                                     <span style="color: #FFA700;">Chờ thanh toán</span>
                                 @elseif($item->status == 'success')
-                                    <span style="color: #00B520;">Rút tiền thành công</span>
+                                    <span style="color: #00B520;">Nạp tiền thành công</span>
                                 @elseif($item->status == 'fail')
-                                    <span style="color: #0070FF;">Rút tiền thất bại</span>
+                                    <span style="color: #0070FF;">Nạp tiền thất bại</span>
                                 @endif
                             </li>
                             <li class="w50 tr time">{{ date('d/m/Y H:i:s', strtotime($item->created_at)) }}</li>
