@@ -599,7 +599,7 @@
                     var a = layer.load(1);
                     axios.post('{{env('API_URL')}}/dat-cuoc', {
                         gameid: gameid,
-                        room: 'so_cap',
+                        room: '{{ $roomName }}',
                         qishu: nextqishu,
                         result_money: parseFloat(f) * 1000,
                         wanfa: b,
