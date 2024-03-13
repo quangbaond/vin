@@ -55,6 +55,11 @@
         c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
     })(document);
 </script>
+<style>
+    #smartsupp-widget-container div {
+        bottom: 30% !important;
+    }
+</style>
 </head>
 <body>
 <style type="text/css">
@@ -130,7 +135,7 @@
     }
 
     .game_box {
-        height: 200px !important;
+        height: 544px !important;
     }
 
     .send_box {
@@ -221,36 +226,24 @@
                                 class="b_19">19</em><em>Lớn</em><em>Lẻ</em></span></li>
                     <li><span>Phiên 1402589 </span><span><i>5</i><i>0</i><i>3</i><em class="b_8">8</em><em>Nhỏ</em><em>Chẵn</em></span>
                     </li>
-                    <li><span>Phiên 1402588 </span><span><i>8</i><i>0</i><i>4</i><em
-                                class="b_12">12</em><em>Nhỏ</em><em>Chẵn</em></span></li>
-                    <li><span>Phiên 1402539 </span><span><i>5</i><i>3</i><i>9</i><em
-                                class="b_17">17</em><em>Lớn</em><em>Lẻ</em></span></li>
-                    <li><span>Phiên 1402538 </span><span><i>7</i><i>1</i><i>8</i><em
-                                class="b_16">16</em><em>Lớn</em><em>Chẵn</em></span></li>
-                    <li><span>Phiên 1402537 </span><span><i>1</i><i>5</i><i>7</i><em
-                                class="b_13">13</em><em>Nhỏ</em><em>Lẻ</em></span></li>
-                    <li><span>Phiên 1402536 </span><span><i>5</i><i>2</i><i>9</i><em
-                                class="b_16">16</em><em>Lớn</em><em>Chẵn</em></span></li>
-                    <li><span>Phiên 1402535 </span><span><i>8</i><i>7</i><i>0</i><em
-                                class="b_15">15</em><em>Lớn</em><em>Lẻ</em></span></li>
-                    <li><span>Phiên 1402534 </span><span><i>3</i><i>9</i><i>2</i><em
-                                class="b_14">14</em><em>Lớn</em><em>Chẵn</em></span></li>
-                    <li><span>Phiên 1402533 </span><span><i>6</i><i>5</i><i>7</i><em
-                                class="b_18">18</em><em>Lớn</em><em>Chẵn</em></span></li>
-                    <li><span>Phiên 1402532 </span><span><i>1</i><i>3</i><i>0</i><em class="b_4">4</em><em>Nhỏ</em><em>Chẵn</em></span>
-                    </li>
-                    <li><span>Phiên 1402531 </span><span><i>6</i><i>4</i><i>3</i><em
-                                class="b_13">13</em><em>Nhỏ</em><em>Lẻ</em></span></li>
-                    <li><span>Phiên 1402530 </span><span><i>3</i><i>0</i><i>5</i><em class="b_8">8</em><em>Nhỏ</em><em>Chẵn</em></span>
-                    </li>
-                    <li><span>Phiên 1402529 </span><span><i>9</i><i>1</i><i>2</i><em
-                                class="b_12">12</em><em>Nhỏ</em><em>Chẵn</em></span></li>
-                    <li><span>Phiên 1402528 </span><span><i>6</i><i>8</i><i>4</i><em
-                                class="b_18">18</em><em>Lớn</em><em>Chẵn</em></span></li>
-                    <li><span>Phiên 1402527 </span><span><i>1</i><i>0</i><i>9</i><em
-                                class="b_10">10</em><em>Nhỏ</em><em>Chẵn</em></span></li>
+
+                    @endforeach
                 </ul>
-                <!--<a class="more" href="?a=haoma">Thêm</a>-->
+                <ul id="kq_loto">
+                    @foreach($lotos as $loto)
+                        <li>
+                            <span>Phiên {{ $loto->phien_id }}</span>
+                            <span>
+                                <i>{{ $loto->so_1 }}</i>
+                                <i>{{ $loto->so_2 }}</i>
+                                <i>{{ $loto->so_3 }}</i>
+                                <em class="b_{{ $loto->result }}">{{ $loto->result }}</em>
+                                <em>{{ $loto->result > 15 ? 'Lớn' : 'Nhỏ' }}</em><em>{{ $loto->result %2 === 0 ? 'Chẵn' : 'Lẻ' }}</em>
+                            </span>
+                        </li>
+
+                    @endforeach
+                </ul>
             </div>
         </div>
 
@@ -483,6 +476,17 @@
             $('#tong').text(data.result);
             $('#lon_nho').text(data.result_lon_nho);
             $('#chan_le').text(data.result_chan_le);
+            // prepend new result
+            $('#kq_loto').prepend(`<li>
+                <span>Phiên ${data.id}</span>
+                <span>
+                    <i>${data.so1}</i>
+                    <i>${data.so2}</i>
+                    <i>${data.so3}</i>
+                    <em class="b_${data.result}">${data.result}</em>
+                    <em>${data.result > 15 ? 'Lớn' : 'Nhỏ'}</em><em>${data.result %2 === 0 ? 'Chẵn' : 'Lẻ'}</em>
+                </span>
+            </li>`)
         }
     })
 

@@ -154,7 +154,8 @@ class HomeController extends Controller
                 if($now->lt($openTime) || $now->gt($closeTime)) {
                     return view('roomClosed');
                 } else {
-                    return view('lotoGame', compact('roomName'));
+                    $lotos = \App\Models\Loto::query()->where('user_id', auth()->user()->id)->orDerBy('created_at', 'desc')->limit(10)->get();
+                    return view('lotoGame', compact('roomName', 'lotos'));
                 }
             }
         }
