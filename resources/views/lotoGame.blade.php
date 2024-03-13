@@ -213,22 +213,6 @@
                 <span class="val_list"></span>
             </div>
             <div class="haoma_box">
-                <ul>
-                    <li><span>Phiên 1402594 </span><span><i>8</i><i>2</i><i>9</i><em
-                                class="b_19">19</em><em>Lớn</em><em>Lẻ</em></span></li>
-                    <li><span>Phiên 1402593 </span><span><i>8</i><i>5</i><i>1</i><em
-                                class="b_14">14</em><em>Lớn</em><em>Chẵn</em></span></li>
-                    <li><span>Phiên 1402592 </span><span><i>6</i><i>2</i><i>5</i><em
-                                class="b_13">13</em><em>Nhỏ</em><em>Lẻ</em></span></li>
-                    <li><span>Phiên 1402591 </span><span><i>3</i><i>9</i><i>6</i><em
-                                class="b_18">18</em><em>Lớn</em><em>Chẵn</em></span></li>
-                    <li><span>Phiên 1402590 </span><span><i>9</i><i>4</i><i>6</i><em
-                                class="b_19">19</em><em>Lớn</em><em>Lẻ</em></span></li>
-                    <li><span>Phiên 1402589 </span><span><i>5</i><i>0</i><i>3</i><em class="b_8">8</em><em>Nhỏ</em><em>Chẵn</em></span>
-                    </li>
-
-                    @endforeach
-                </ul>
                 <ul id="kq_loto">
                     @foreach($lotos as $loto)
                         <li>
