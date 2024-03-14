@@ -57,7 +57,7 @@
 </script>
 <style>
     #smartsupp-widget-container div {
-    bottom: 55px !important;
+        bottom: 0px !important;
     }
 </style>
 </head>
@@ -261,7 +261,7 @@
                     <!--<a href="javascript:;" class="a">Kết hợp</a>-->
                     <!--<a href="javascript:;">Số đặc biệt</a>-->
 
-                    <a href="javascript:;" class="a text1">Bình Thường</a>
+{{--                    <a href="javascript:;" class="a text1">Bình Thường</a>--}}
                     <a href="javascript:;" class="text2">Đặc biệt</a>
                 </div>
                 <div id="game" class="line_box">
