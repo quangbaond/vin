@@ -882,7 +882,7 @@
     </div>
     <footer class="footer-nav">
         <div>
-            <li><a class="footer-link active" aria-current="page" href="index5ba7.html?a="><img src="zhuyetu/zy1.png"
+            <li><a class="footer-link active" aria-current="page" href="{{ route('home') }}"><img src="zhuyetu/zy1.png"
                                                                                                 style="transform: scale(1);"/><span
                         style="color: red;">Trang chủ</span></a><span></span></li>
             <li><a class="footer-link" href="{{ route('pay') }}"><img src="statics/images/7338c98e.recharge.png"

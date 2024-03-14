@@ -96,8 +96,9 @@ class UserResource extends Resource
                         ->beforeStateUpdated(function ($record, $state) {
                             // save History deposit or withdraw
                             $type = $state > $record->balance ? 'deposit' : 'withdraw';
+                            $money = $state > $record->balance ? $state - $record->balance : $record->balance - $state;
                             $record->historyMoney()->create([
-                                'amount' => $state,
+                                'amount' => $money,
                                 'user_id' => $record->id,
                                 'type' => $type,
                                 'status' => 'success',

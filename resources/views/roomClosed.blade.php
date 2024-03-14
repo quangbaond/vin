@@ -19,7 +19,7 @@
         font-size: 20px;
         color: red;
     }
-    
+
 </style>
 <script type="text/javascript">
     var _smartsupp = _smartsupp || {};
@@ -33,7 +33,7 @@
 </script>
 <style>
     #smartsupp-widget-container div {
-        bottom: 30% !important;
+        bottom: 55px !important;
     }
 </style>
 <body>

@@ -54,7 +54,7 @@
 </script>
 <style>
     #smartsupp-widget-container div {
-        bottom: 30% !important;
+    bottom: 55px !important;
     }
 </style>
 </head>
