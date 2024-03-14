@@ -89,14 +89,14 @@
                         </li>
                     </ul>
                 </div>
-                <div class="submit"><input id="submit" name="submit" value=" Dịch vụ CSKH " style="font-size: x-large; text-align: center "> </div>
+                <div class="submit"><input id="submit" disabled name="submit" value=" Dịch vụ CSKH " style="font-size: x-large; text-align: center "> </div>
         </div>
     </div>
 
     <footer class="footer-nav">
     <div>
         <li><a class="footer-link active" aria-current="page" href="{{ route('home') }}"><img src="/zhuyetu/zy1.png" style="transform: scale(1);"><span style="color: red;">Trang chủ</span></a><span></span></li>
-        <li><a class="footer-link" href="?a=pay"><img src="statics/images/7338c98e.recharge.png" style="transform: scale(1);"><span>Nạp tiền</span></a><span></span></li>
+        <li><a class="footer-link" href="{{ route('pay') }}"><img src="statics/images/7338c98e.recharge.png" style="transform: scale(1);"><span>Nạp tiền</span></a><span></span></li>
         <li><a class="footer-link" href="{{ route('me') }}"><img src="/zhuyetu/wd.png" style="transform: scale(1);"><span>Của tôi</span></a><span></span></li>
     </div>
     <p></p>

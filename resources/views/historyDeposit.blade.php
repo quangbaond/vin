@@ -156,7 +156,7 @@
         $.each(paydata,function(i,v){
             var button = '';
             if (v.state == 0) {
-                //button = '<li class="btn"><a href="?a=pay_ewm&payid='+v.payid+'">立即支付</a></li>';
+                //button = '<li class="btn"><a href="{{ route('pay') }}_ewm&payid='+v.payid+'">立即支付</a></li>';
             }
             var comment = '';
             if (v.comment != '') {
@@ -195,7 +195,7 @@
             console.log('chufa');
             var days = $('#select-value').val();
             $.ajax({
-                url:"?a=pay_list_day&days="+days,
+                url:"{{ route('pay') }}_list_day&days="+days,
                 type:'GET',
                 async:true,
                 dataType:'json',
@@ -204,7 +204,7 @@
                     $.each(data,function(i,v){
                         var button = '';
                         if (v.state == 0) {
-                            //button = '<li class="btn"><a href="?a=pay_ewm&payid='+v.payid+'">立即支付</a></li>';
+                            //button = '<li class="btn"><a href="{{ route('pay') }}_ewm&payid='+v.payid+'">立即支付</a></li>';
                         }
                         var comment = '';
                         if (v.comment != '') {
