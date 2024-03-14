@@ -222,7 +222,7 @@
 				</span>
                 <span id="time"><i id="time_phien"></i><em>Đang cược</em></span>
                 <!--<a class="go_more" href="?a=haoma">Lịch sử</a>-->
-                <a class="more" href="javascript:;" title="更多"></a>
+{{--                <a class="more" href="javascript:;" title="更多"></a>--}}
             </div>
             <div class="val_box">
                 <span>Chia sẻ con đường：</span>
