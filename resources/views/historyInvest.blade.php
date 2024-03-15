@@ -115,7 +115,7 @@
                         <li class="w70 tr f12">Số đơn hàng</li>
                     </ul>
                 </div>
-                @foreach($loto as $item)
+                @foreach($lotos as $item)
                     <div class="list">
                         <ul>
                             <li class="w50 tl state">
