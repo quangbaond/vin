@@ -449,8 +449,10 @@
             const username = user.username.slice(0, 1) + '***' + user.username.slice(-1)
             // chat_box tự động cuộn xuống dưới khi có tin nhắn mới
             // lấy offsetHeight của chat_box
-            const chatBoxHeight = $('#chat_box').prop("scrollHeight") - $('#chat_box').height() - 20;
-            $('#chat_box').animate({scrollTop: $('#chat_box').prop("scrollHeight")}, chatBoxHeight);
+            if($('#chat_box').prop("scrollHeight") - $('#chat_box').height() - 100 < 0) {
+                const chatBoxHeight = $('#chat_box').prop("scrollHeight") - $('#chat_box').height() - 100 // offsetHeight
+                $('#chat_box').animate({scrollTop: $('#chat_box').prop("scrollHeight")}, chatBoxHeight);
+            }
             return `<li>
                 <h5>${user.time}</h5>
 <!--                <img src="statics/images/autopic/85.jpg">-->
@@ -464,8 +466,6 @@
         }).join('')
 
         $('#users').html(userHtml)
-
-
 
         $('#so_1_admin').text(data.so1);
         $('#so_2_admin').text(data.so2);
