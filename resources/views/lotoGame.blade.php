@@ -254,7 +254,7 @@
                 {{--                </li>--}}
             </ul>
         </div>
-        <div class="game_box" >
+        <div class="game_box" style="height: 336px;">
             <div class="games">
                 <div class="title">
                     <!--<a href="javascript:;" class="a">Kết hợp</a>-->
