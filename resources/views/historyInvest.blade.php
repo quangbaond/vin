@@ -121,7 +121,7 @@
                             <li class="w50 tl state">
                                 Bạn đã đầu tư
                             </li>
-                            <li class="w50 tr time">{{ \Carbon\Carbon::parse($item->created_at)->format('D/M/Y H:i:s') }}</li>
+                            <li class="w50 tr time">{{ $item->created_at }}</li>
                             <li class="w30 val">{{ number_format($item->result_money) }} VNĐ</li>
                             <li class="w70 tr f12">Tại phiên{{ $item->phien_id }}</li>
                         </ul>
