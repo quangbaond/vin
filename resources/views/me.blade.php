@@ -194,10 +194,10 @@
                     <img class="pic" src="/statics/css/images/user-tx.png" alt="PIC">
                     <span>Lịch sử rút tiền</span>
                 </div>
-{{--                <div class="money" onclick="window.open('{{ route('historyInvest') }}','_self')">--}}
-{{--                    <img class="pic" src="/statics/css/images/user-lczd.png" alt="PIC">--}}
-{{--                    <span>Lịch sử đầu tư</span>--}}
-{{--                </div>--}}
+                <div class="money" onclick="window.open('{{ route('historyInvest') }}','_self')">
+                    <img class="pic" src="/statics/css/images/user-lczd.png" alt="PIC">
+                    <span>Lịch sử đầu tư</span>
+                </div>
                 <div class="money" style="border-left: medium none;" onclick="window.open('{{ route('profile') }}','_self')">
                     <img class="pic" src="/statics/css/images/user-xzjl.png" alt="PIC">
                     <span>Thông tin tài khoản</span>

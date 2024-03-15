@@ -222,7 +222,7 @@
 				</span>
                 <span id="time"><i id="time_phien"></i><em>Đang cược</em></span>
                 <!--<a class="go_more" href="?a=haoma">Lịch sử</a>-->
-{{--                <a class="more" href="javascript:;" title="更多"></a>--}}
+                <a class="more" href="javascript:;" title="更多"></a>
             </div>
             <div class="val_box">
                 <span>Chia sẻ con đường：</span>
@@ -230,7 +230,7 @@
             </div>
             <div class="haoma_box">
                 <ul id="kq_loto">
-                    <!-- @foreach($lotos as $loto)
+                     @foreach($lotos as $loto)
                         <li>
                             <span>Phiên {{ $loto->phien_id }}</span>
                             <span>
@@ -241,8 +241,7 @@
                                 <em>{{ $loto->result > 15 ? 'Lớn' : 'Nhỏ' }}</em><em>{{ $loto->result %2 === 0 ? 'Chẵn' : 'Lẻ' }}</em>
                             </span>
                         </li>
-
-                    @endforeach -->
+                    @endforeach
                 </ul>
             </div>
         </div>
@@ -261,8 +260,8 @@
                     <!--<a href="javascript:;" class="a">Kết hợp</a>-->
                     <!--<a href="javascript:;">Số đặc biệt</a>-->
 
-{{--                    <a href="javascript:;" class="a text1">Bình Thường</a>--}}
-                    <a href="javascript:;" class="text2">Đặc biệt</a>
+                    <a href="javascript:;" class="a text1">Bình Thường</a>
+{{--                    <a href="javascript:;" class="text2">Đặc biệt</a>--}}
                 </div>
                 <div id="game" class="line_box">
                     <div class="line a">

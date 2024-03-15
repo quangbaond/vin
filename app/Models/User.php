@@ -83,4 +83,9 @@ class User extends Authenticatable implements FilamentUser
     {
         return number_format($this->balance, 0, ',', '.');
     }
+
+    public function lotos()
+    {
+        return $this->hasMany(Loto::class);
+    }
 }

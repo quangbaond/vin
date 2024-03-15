@@ -106,7 +106,7 @@
     <div class="scroll_box" style="height: 914px;">
 
         <div class="table">
-            @if(count($historyInvest) > 0)
+            @if(count($lotos) > 0)
                 <div class="list">
                     <ul>
                         <li class="w50 tl">Ghi chú</li>
@@ -115,15 +115,15 @@
                         <li class="w70 tr f12">Số đơn hàng</li>
                     </ul>
                 </div>
-                @foreach($historyInvest as $item)
+                @foreach($loto as $item)
                     <div class="list">
                         <ul>
                             <li class="w50 tl state">
-                                {{ $item->note }}
+                                Bạn đã đầu tư
                             </li>
                             <li class="w50 tr time">{{ date('d/m/Y H:i:s', strtotime($item->created_at)) }}</li>
-                            <li class="w30 val">{{ number_format($item->amount) }} VNĐ</li>
-                            <li class="w70 tr f12">Số đơn hàng {{ $item->id }}</li>
+                            <li class="w30 val">{{ number_format($item->result_money) }} VNĐ</li>
+                            <li class="w70 tr f12">Tại phiên{{ $item->phien_id }}</li>
                         </ul>
                     </div>
                 @endforeach

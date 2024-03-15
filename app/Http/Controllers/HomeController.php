@@ -57,12 +57,12 @@ class HomeController extends Controller
         ], [
             'amount.required' => 'Vui lòng nhập số tiền',
         ]);
-        
+
         // parse amount to float 11.111.111
         $request->amount = str_replace(',', '', $request->amount);
         $request->amount = str_replace('.', '', $request->amount);
         $request->amount = str_replace(' ', '', $request->amount);
-  
+
         $user = auth()->user();
 
         if ($user->balance < $request->amount) {
@@ -99,8 +99,8 @@ class HomeController extends Controller
     public function historyInvest()
     {
         $user = auth()->user();
-        $historyInvest = $user->historyInvest;
-        return view('historyInvest', compact('historyInvest'));
+        $lotos = $user->lotos;
+        return view('historyInvest', compact('lotos'));
     }
 
     public function updateProfile(Request $request): \Illuminate\Http\RedirectResponse
@@ -151,12 +151,11 @@ class HomeController extends Controller
                 $openTime = \Carbon\Carbon::parse($room->open_time);
                 $closeTime = \Carbon\Carbon::parse($room->close_time);
                 $now = \Carbon\Carbon::now();
-                if($now->lt($openTime) || $now->gt($closeTime)) {
-                    return view('roomClosed');
-                } else {
-                    $lotos = \App\Models\Loto::query()->where('user_id', auth()->user()->id)->orDerBy('created_at', 'desc')->limit(10)->get();
-                    return view('lotoGame', compact('roomName', 'lotos'));
-                }
+
+                $roomClose = $now->lt($openTime) || $now->gt($closeTime) ? 'Close' : 'Open';
+                $lotos = \App\Models\Loto::query()->where('room', $roomName)->where('user_id', auth()->id())->orderBy('created_at', 'desc')->limit(20)->get();
+                return view('lotoGame', compact('roomName', 'roomClose', 'lotos'));
+
             }
         }
 
