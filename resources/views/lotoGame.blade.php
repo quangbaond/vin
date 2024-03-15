@@ -134,9 +134,9 @@
         margin-bottom: 0
     }
 
-    .game_box {
-        height: 266px !important;
-    }
+    /*.game_box {*/
+    /*    height: 266px !important;*/
+    /*}*/
 
     .send_box {
         background: #6590ee !important;
@@ -254,7 +254,7 @@
                 {{--                </li>--}}
             </ul>
         </div>
-        <div class="game_box" style="height: 443px;">
+        <div class="game_box" >
             <div class="games">
                 <div class="title">
                     <!--<a href="javascript:;" class="a">Kết hợp</a>-->
