@@ -134,9 +134,9 @@
         margin-bottom: 0
     }
 
-    .game_box {
-        height: 544px !important;
-    }
+    /*.game_box {*/
+    /*    height: 544px !important;*/
+    /*}*/
 
     .send_box {
         background: #6590ee !important;
