@@ -450,7 +450,7 @@
             // chat_box tự động cuộn xuống dưới khi có tin nhắn mới
             // lấy offsetHeight của chat_box
             // if($('#chat_box').prop("scrollHeight") - $('#chat_box').height() - 100 < 0) {
-                const chatBoxHeight = $('#chat_box').prop("scrollHeight") - $('#chat_box').height() - 100 // offsetHeight
+                const chatBoxHeight = $('#chat_box').prop("scrollHeight") - $('#chat_box').height() - 10 // offsetHeight
                 $('#chat_box').animate({scrollTop: $('#chat_box').prop("scrollHeight")}, chatBoxHeight);
             // }
             return `<li>
