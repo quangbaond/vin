@@ -607,6 +607,16 @@
                     btn: ["Xác nhận cược", "Hủy bỏ"]
                 }, function () {
                     var a = layer.load(1);
+                    var roomClose = `{{ $rooClose }}`
+                    if(roomClose === 'Close') {
+                        layer.close(a);
+                        layer.alert('Phòng đã đóng cửa', {
+                            icon: 0,
+                            btn: ['OK']
+                        })
+                        return;
+                    }
+
                     axios.post('{{env('API_URL')}}/dat-cuoc', {
                         gameid: gameid,
                         room: '{{ str_replace('-', '_', $roomName)}}',
