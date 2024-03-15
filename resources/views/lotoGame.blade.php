@@ -135,7 +135,7 @@
     }
 
     .game_box {
-        height: 420px !important;
+        height: 266px !important;
     }
 
     .send_box {
