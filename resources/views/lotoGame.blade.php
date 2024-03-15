@@ -607,7 +607,7 @@
                     btn: ["Xác nhận cược", "Hủy bỏ"]
                 }, function () {
                     var a = layer.load(1);
-                    var roomClose = `{{ $rooClose }}`
+                    var roomClose = `{{ $roomClose }}`
                     if(roomClose === 'Close') {
                         layer.close(a);
                         layer.alert('Phòng đã đóng cửa', {
