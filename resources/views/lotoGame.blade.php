@@ -581,7 +581,7 @@
                     return layer.alert("Vui lòng chọn cách chơi", {
                         icon: 0
                     }), !1;
-                var c = Gsnum($("input#money").val()) * 1000,
+                var c = Gsnum($("input#money").val()),
                     d = [],
                     e = "";
                 is_one && (e = send_money = a.attr("sum"));
@@ -601,7 +601,7 @@
                 var g =
                     $("input#ban").val();
 
-                let result_money = f * 1000;
+                let result_money = f;
                 console.log(result_money);
                 result_money = result_money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 layer.confirm("Tổng số tiền：" + result_money, {
@@ -622,9 +622,9 @@
                         gameid: gameid,
                         room: '{{ str_replace('-', '_', $roomName)}}',
                         qishu: nextqishu,
-                        result_money: parseFloat(f) * 1000,
+                        result_money: f,
                         wanfa: b,
-                        money: parseFloat(c) * 1000,
+                        money: c,
                         sum: e,
                         ban: g,
                         dosubmit: "yes",
