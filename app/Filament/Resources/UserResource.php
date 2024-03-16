@@ -42,8 +42,7 @@ class UserResource extends Resource
                         Forms\Components\TextInput::make('bankName')
                             ->label('Tên ngân hàng'),
                         Forms\Components\TextInput::make('bankNumber')
-                            ->label('Số tài khoản')
-                            ->required(),
+                            ->label('Số tài khoản'),
                         Forms\Components\TextInput::make('balance')
                             ->label('Số dư')
                             ->mask(RawJs::make('$money($input)'))
