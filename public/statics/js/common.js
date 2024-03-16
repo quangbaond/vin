@@ -20,7 +20,7 @@ function Gtnum(S){
 //货币格式化
 function Gsnum(s){
     const value = s.replace(/[^\d.]/g, '');
-	var number = parseFloat(stringNumber.replace(/[,.]/g, ''));
+	var number = parseFloat(s.replace(/[,.]/g, ''));
     console.log(value);
 	console.log(number); 
 	var v = parseFloat(s);
