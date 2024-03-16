@@ -20,10 +20,12 @@ function Gtnum(S){
 //货币格式化
 function Gsnum(s){
     const value = s.replace(/[^\d.]/g, '');
+	var number = parseFloat(stringNumber.replace(/[,.]/g, ''));
     console.log(value);
+	console.log(number); 
 	var v = parseFloat(s);
-	if(isNaN(v)) v = 0;
-	var n = parseFloat(v);
+	if(isNaN(number)) v = 0;
+	var n = parseFloat(number);
 	return n;
 }
 

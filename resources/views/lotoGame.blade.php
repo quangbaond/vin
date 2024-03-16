@@ -602,6 +602,7 @@
                     $("input#ban").val();
 
                 let result_money = f * 1000;
+                console.log(result_money);
                 result_money = result_money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
                 layer.confirm("Tổng số tiền：" + result_money, {
                     btn: ["Xác nhận cược", "Hủy bỏ"]
