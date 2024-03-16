@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="https://vinhomess.org/statics/js/layer/theme/default/layer.css?v=3.1.0"
           id="layuicss-layer">
     <script type="text/javascript" src="statics/js/global.js"></script>
-    <script type="text/javascript" src="statics/js/common.js"></script>
+    <script type="text/javascript" src="statics/js/common.js?v=1"></script>
     <script type="text/javascript">
         var WEB_PATH = '/';//首页路径
         var INDEX_PATH = 'index.php?';//首页URL
