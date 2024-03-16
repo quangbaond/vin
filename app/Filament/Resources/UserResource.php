@@ -12,6 +12,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Support\RawJs;
 
 class UserResource extends Resource
 {
@@ -32,23 +33,22 @@ class UserResource extends Resource
                             ->label('Họ và tên')
                             ->required(),
                         Forms\Components\TextInput::make('email')
-                            ->label('Email')
-                            ->required(),
+                            ->label('Email'),
                         Forms\Components\TextInput::make('username')
                             ->label('Tên đăng nhập')
                             ->required(),
                         Forms\Components\TextInput::make('number_phone')
-                            ->label('Số điện thoại')
-                            ->required(),
+                            ->label('Số điện thoại'),
                         Forms\Components\TextInput::make('bankName')
-                            ->label('Tên ngân hàng')
-                            ->required(),
+                            ->label('Tên ngân hàng'),
                         Forms\Components\TextInput::make('bankNumber')
                             ->label('Số tài khoản')
                             ->required(),
                         Forms\Components\TextInput::make('balance')
                             ->label('Số dư')
-                            ->required(),
+                            ->mask(RawJs::make('$money($input)'))
+                            ->stripCharacters(',')
+                            ->numeric(),
                         Forms\Components\TextInput::make('password')
                             ->label('Mật khẩu')
                             ->password()
@@ -81,6 +81,9 @@ class UserResource extends Resource
                     ->label('Số dư')
                     ->rules(['required', 'numeric'])
                     ->type('number')
+                    // format number
+                    // onchange
+                    
                     // after save
 //                    ->afterStateUpdated(function ($record, $state) {
 //                        // save History deposit or withdraw
