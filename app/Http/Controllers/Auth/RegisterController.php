@@ -88,7 +88,7 @@ class RegisterController extends Controller
                 'name' => $data['name'],
                 'username' => $data['username'],
                 'password' => Hash::make($data['password']),
-                'code' => 'Vin-' . str_pad(User::count() + 1, 4, '0', STR_PAD_LEFT),
+                'code' => 'Vin-' rand(1000, 9999),
             ]);
         }
     }
