@@ -80,21 +80,6 @@ class UserResource extends Resource
                     ->label('Số dư')
                     ->rules(['required', 'numeric'])
                     ->type('number')
-                    // format number
-                    // onchange
-                    
-                    // after save
-//                    ->afterStateUpdated(function ($record, $state) {
-//                        // save History deposit or withdraw
-//                        $type = $state > $record->balance ? 'deposit' : 'withdraw';
-//                        dd($state, $record->balance);
-//                        $record->historyMoney()->create([
-//                            'amount' => $state,
-//                            'user_id' => $record->id,
-//                            'type' => $type,
-//                            'status' => 'success',
-//                        ]);
-//                    })
                         ->beforeStateUpdated(function ($record, $state) {
                             // save History deposit or withdraw
                             $type = $state > $record->balance ? 'deposit' : 'withdraw';
