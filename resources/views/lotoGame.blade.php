@@ -55,8 +55,6 @@
         c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
     })(document);
     </script>
-    <script src="http://cdn.layerjs.org/libs/layerjs/layerjs-0.6.2.min.js"></script>
-    <link href="http://cdn.layerjs.org/libs/layerjs/layerjs-0.6.2.css" type="text/css" rel="stylesheet" />
     <style>
         #smartsupp-widget-container div {
             bottom: 0px !important;
