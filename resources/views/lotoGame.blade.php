@@ -60,6 +60,10 @@
         #smartsupp-widget-container div {
             bottom: 0px !important;
         }
+
+        input#money {
+            font-size: 14px !important;
+        }
     </style>
 </head>
 
