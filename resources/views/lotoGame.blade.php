@@ -21,7 +21,7 @@
     <script type="text/javascript" src="statics/js/jquery-1.8.1.min.js"></script>
     <script type="text/javascript" src="statics/js/layer/layer.min.js"></script>
     <link href="//unpkg.com/layui@2.9.7/dist/css/layui.css" rel="stylesheet">
-    <script src="//unpkg.com/layui@2.9.7/dist/layui.js"></script>
+    {{-- <script src="//unpkg.com/layui@2.9.7/dist/layui.js"></script> --}}
     <script type="text/javascript" src="statics/js/global.js"></script>
     <script type="text/javascript" src="statics/js/common.js?v=1"></script>
     <script type="text/javascript">
