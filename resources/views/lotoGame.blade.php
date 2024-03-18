@@ -20,7 +20,7 @@
     <link type="text/css" rel="stylesheet" href="statics/css/font/iconfont.css">
     <script type="text/javascript" src="statics/js/jquery-1.8.1.min.js"></script>
     <script type="text/javascript" src="statics/js/layer/layer.min.js"></script>
-    <link rel="stylesheet" href="statics/js/layer/layerjs.css">
+    <link rel="stylesheet" href="statics/js/layer/layui.css">
     <script type="text/javascript" src="statics/js/global.js"></script>
     <script type="text/javascript" src="statics/js/common.js?v=1"></script>
     <script type="text/javascript">
