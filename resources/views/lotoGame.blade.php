@@ -47,7 +47,7 @@
         }
     </script>
     <style>
-        #smartsupp-widget-container div {
+        #chat-widget-container {
             bottom: 0px !important;
         }
 

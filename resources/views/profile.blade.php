@@ -30,9 +30,9 @@
             margin-top: 10px;
         }
     </style>
-    
+
 <style>
-    #smartsupp-widget-container div {
+    #chat-widget-container {
     bottom: 55px !important;
     }
 </style>

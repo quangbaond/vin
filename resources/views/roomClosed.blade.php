@@ -23,7 +23,7 @@
 </style>
 
 <style>
-    #smartsupp-widget-container div {
+    #chat-widget-container {
         bottom: 55px !important;
     }
 </style>

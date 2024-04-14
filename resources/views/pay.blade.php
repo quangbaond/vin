@@ -55,7 +55,7 @@
 <style>#app, .footer-nav, .dream-header, .header-nav{max-width:750px;margin:auto}.my_item_more img{display:block;margin:auto;width:auto}</style>
 
 <style>
-    #smartsupp-widget-container div {
+    #chat-widget-container {
     bottom: 55px !important;
     }
 </style>
