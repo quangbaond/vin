@@ -42,15 +42,6 @@
             },false);
         }
     </script>
-<<<<<<< HEAD
-
-    <style>
-        #chat-widget-container {
-            bottom: 55px !important;
-        }
-
-    </style>
-=======
     <script type="text/javascript">
     var _smartsupp = _smartsupp || {};
     _smartsupp.key = '{{ env('SMARTSUPP_KEY') }}';
@@ -66,7 +57,6 @@
         bottom: 55px !important;
     }
 </style>
->>>>>>> parent of 5b06494 (develop)
 </head>
 <body><link type="text/css" rel="stylesheet" href="statics/css/style.mobile.css">
 <link type="text/css" rel="stylesheet" href="statics/css/swiper.min.css">

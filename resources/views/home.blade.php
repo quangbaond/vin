@@ -82,67 +82,6 @@
             }, false);
         }
     </script>
-<<<<<<< HEAD
-    <style type="text/css">
-        .layui-layer-content {
-            padding: 0px 15px;
-        }
-
-        .layui-layer-title {
-            background-color: #f8f8f8;
-            color: #0d0c0c;
-        }
-
-        img {
-            max-width: 100%
-        }
-
-        #slide {
-            background: #fff;
-            border-radius: 0 0 8px 8px;
-            height: 300px;
-            width: 100%;
-            color: #999;
-            overflow: hidden;
-            border: 1px solid #f5f5f5;
-            padding: 10px;
-            box-sizing: border-box
-        }
-
-        #slide td {
-            padding: 0
-        }
-
-        marquee br {
-            display: none
-        }
-
-        .home-container {
-            background: transparent
-        }
-
-        .slider-pic {
-            height: auto;
-        }
-
-        #app,
-        .footer-nav,
-        .dream-header {
-            max-width: 750px;
-            margin: auto
-        }
-    </style>
-
-
-
-    <style>
-        #chat-widget-container {
-            bottom: 55px !important;
-        }
-    </style>
-    <script type="text/javascript" src="statics/js/touchslide.js"></script>
-=======
->>>>>>> parent of 5b06494 (develop)
 
 <script type="text/javascript">
     var _smartsupp = _smartsupp || {};

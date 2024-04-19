@@ -30,9 +30,6 @@
             margin-top: 10px;
         }
     </style>
-<<<<<<< HEAD
-
-=======
     <script type="text/javascript">
     var _smartsupp = _smartsupp || {};
     _smartsupp.key = '{{ env('SMARTSUPP_KEY') }}';
@@ -43,7 +40,6 @@
         c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
     })(document);
 </script>
->>>>>>> parent of 5b06494 (develop)
 <style>
     #chat-widget-container {
     bottom: 55px !important;

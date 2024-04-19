@@ -42,14 +42,6 @@
             },false);
         }
     </script>
-<<<<<<< HEAD
-
-    <style>
-        #chat-widget-container {
-            bottom: 55px !important;
-        }
-    </style>
-=======
     <script type="text/javascript">
     var _smartsupp = _smartsupp || {};
     _smartsupp.key = '{{ env('SMARTSUPP_KEY') }}';
@@ -65,7 +57,6 @@
     bottom: 55px !important;
     }
 </style>
->>>>>>> parent of 5b06494 (develop)
 </head>
 <body><style type="text/css">
     .roomPanel{

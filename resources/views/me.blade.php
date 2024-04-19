@@ -129,16 +129,6 @@
     </style>
     <style type="text/css">.transition {
             transition: all .3s
-<<<<<<< HEAD
-        }
-    </style>
-
-    <style>
-        #chat-widget-container {
-            bottom: 55px !important;
-        }
-    </style>
-=======
         }</style>
         <script type="text/javascript">
     var _smartsupp = _smartsupp || {};
@@ -155,7 +145,6 @@
     bottom: 55px !important;
     }
 </style>
->>>>>>> parent of 5b06494 (develop)
 </head>
 <body>
 
