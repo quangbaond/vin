@@ -59,13 +59,14 @@ class HomeController extends Controller
         ]);
 
         // parse amount to float 11.111.111
-        $request->amount = str_replace(',', '', $request->amount);
-        $request->amount = str_replace('.', '', $request->amount);
-        $request->amount = str_replace(' ', '', $request->amount);
+        $amout = str_replace(',', '', $request->amount);
+        $amout = str_replace(',', '', $request->amount);
+        $amout = str_replace('.', '', $request->amount);
+        $amout = str_replace(' ', '', $request->amount);
 
         $user = auth()->user();
 
-        if ($user->balance < $request->amount) {
+        if ($user->balance < $amout) {
             return redirect()->route('withdraw')->with('error', 'Số dư không đủ')->withInput();
         }
         // $user->balance = $user->balance - $request->amount;
@@ -73,7 +74,7 @@ class HomeController extends Controller
 
         $history = new \App\Models\HistoryMoney;
         $history->type = 'withdraw';
-        $history->amount = $request->amount;
+        $history->amount = $amout;
         $history->status = 'pending';
         $history->user_id = $user->id;
         $history->note = $request->note;
@@ -134,18 +135,18 @@ class HomeController extends Controller
                 return redirect()->route('loto');
             } else {
                 $roomId = 0;
-                if($roomName === 'so-cap') {
+                if ($roomName === 'so-cap') {
                     $roomId = 1;
-                } else if($roomName === 'trung-cap') {
+                } else if ($roomName === 'trung-cap') {
                     $roomId = 2;
-                } else if($roomName === 'cao-cap') {
+                } else if ($roomName === 'cao-cap') {
                     $roomId = 3;
-                } else if($roomName === 'vip') {
+                } else if ($roomName === 'vip') {
                     $roomId = 4;
                 }
                 $room = \App\Models\Room::query()->find($roomId);
 
-                if($room === null) {
+                if ($room === null) {
                     return redirect()->route('loto');
                 }
                 $openTime = \Carbon\Carbon::parse($room->open_time);
@@ -155,7 +156,6 @@ class HomeController extends Controller
                 $roomClose = $now->lt($openTime) || $now->gt($closeTime) ? 'Close' : 'Open';
                 $lotos = \App\Models\Loto::query()->where('room', $roomName)->where('user_id', auth()->id())->orderBy('created_at', 'desc')->limit(20)->get();
                 return view('lotoGame', compact('roomName', 'roomClose', 'lotos'));
-
             }
         }
 

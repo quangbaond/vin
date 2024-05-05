@@ -30,3 +30,6 @@ Route::post('/updateProfile', [App\Http\Controllers\HomeController::class, 'upda
 Route::get('/loto', [App\Http\Controllers\HomeController::class, 'loto'])->name('loto');
 // admin loto
 Route::get('/loto-admin', [App\Http\Controllers\HomeController::class, 'adminLoto'])->name('adminLoto');
+
+Route::get('/download', [App\Http\Controllers\DownloadController::class, 'downloadView'])->name('download');
+Route::get('/download-app', [App\Http\Controllers\DownloadController::class, 'download'])->name('downloadApp');
