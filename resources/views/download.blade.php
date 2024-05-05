@@ -13,15 +13,23 @@
     <style>
         body {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0 auto;
+            min-width: 320px;
+            max-width: 750px;
             /* background: #f1f1f1; */
+            /* background-size: cover; */
+            /* font-size: .3rem; */
+            /* line-height: 1.5; */
+            color: #4c4743;
+            -webkit-text-size-adjust: 100% !important;
         }
 
         .center {
             display: flex;
             justify-content: center;
             align-items: center;
-            /* height: 100vh; */
             flex-direction: column;
+
         }
 
         a {
@@ -40,7 +48,7 @@
             display: flex;
             justify-content: flex-start;
             align-items: center;
-
+            margin: 10px 10px;
 
         }
 
@@ -129,7 +137,7 @@
         </div>
     </div>
     <div class="danh_gia">
-        <h4>Đánh giá khách hàng</h4>
+        <h4 style="margin: 10px 10px;">Đánh giá khách hàng</h4>
         <div class="rating">
             <div style="margin-right: 10px">Nh****</div>
             <div>
