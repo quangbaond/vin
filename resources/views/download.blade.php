@@ -10,6 +10,12 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Download</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    {{-- // meta favicon --}}
+    <link rel="icon" href="templates/default/vinpearl-logo.jpg" type="image/x-icon" />
+    <link rel="shortcut icon" href="templates/default/vinpearl-logo.jpg" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="templates/default/vinpearl-logo.jpg" type="image/x-icon" />
+    <link rel="apple-touch-icon-precomposed" href="templates/default/vinpearl-logo.jpg" type="image/x-icon" />
+
     <style>
         body {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
