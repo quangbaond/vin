@@ -32,10 +32,8 @@
 
         .center {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
-            flex-direction: column;
-
         }
 
         a {
@@ -106,13 +104,17 @@
 <body>
     <div class="center">
         {{-- <h1>Download File</h1> --}}
-        <div style="width: 50%;">
-            <img src="templates/default/vinpearl-logo.jpg" alt="logo" width="100%">
+        <div>
+            <img src="templates/default/vinpearl-logo.jpg" alt="logo" width="150px">
+        </div>
+        <div>
             <p style="text-align: center">Tệp tin: &nbsp; Vinhomes.apk</p>
             <p style="text-align: center">Dung Lượng:&nbsp; 30mb</p>
             <p style="text-align: center">Lượt tải:&nbsp; 14.368</p>
+            <p style="text-align: center">
+                <a href="{{ route('downloadApp') }}">Tải xuống</a>
+            </p>
         </div>
-        <a href="{{ route('downloadApp') }}">Tải xuống</a>
     </div>
     <div class="hinh_anh" style="margin: 10px 0;">
         {{-- <h4>Hình ảnh V</h4> --}}
