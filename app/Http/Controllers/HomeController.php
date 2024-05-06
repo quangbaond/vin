@@ -59,14 +59,14 @@ class HomeController extends Controller
         ]);
 
         // parse amount to float 11.111.111
-        $amout = str_replace(',', '', $request->amount);
-        $amout = str_replace(',', '', $request->amount);
-        $amout = str_replace('.', '', $request->amount);
-        $amout = str_replace(' ', '', $request->amount);
+        $request->amount = str_replace(',', '', $request->amount);
+        $request->amount = str_replace(',', '', $request->amount);
+        $request->amount = str_replace('.', '', $request->amount);
+        $request->amount = str_replace(' ', '', $request->amount);
 
         $user = auth()->user();
 
-        if ($user->balance < $amout) {
+        if ($user->balance < $request->amount) {
             return redirect()->route('withdraw')->with('error', 'Số dư không đủ')->withInput();
         }
         // $user->balance = $user->balance - $request->amount;
@@ -74,7 +74,7 @@ class HomeController extends Controller
 
         $history = new \App\Models\HistoryMoney;
         $history->type = 'withdraw';
-        $history->amount = $amout;
+        $history->amount = $request->amount;
         $history->status = 'pending';
         $history->user_id = $user->id;
         $history->note = $request->note;
